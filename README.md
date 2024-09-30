@@ -97,7 +97,7 @@ Para instalar las dependencias necesarias y configurar el proyecto, sigue estos 
 3. **Clona el Repositorio**:
    - Clona el repositorio con el siguiente comando:
      ```bash
-     git clone https://github.com/JafetEsauWerlybi/aplicacionmovilcdm.git
+     git clone https://github.com/keren31/AppMovil_EsteticaCanina.git
      ```
 
 4. **Directorio del Proyecto**:
