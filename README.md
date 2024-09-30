@@ -10,7 +10,7 @@ El objetivo principal es desarrollar una aplicación móvil eficiente, fácil de
 4.	Desarrollar e implementar una pasarela de pago que soporte diferentes métodos, como tarjetas y plataformas de pago digital.
 5.	Asegurar que la aplicación cumpla con los estándares de diseño de experiencia de usuario (UX) y sea fácilmente navegable.
 
-# Metodologia de trabajo
+# Metodología de trabajo
 Metodología XP para el desarrollo del proyecto
 La metodología ágil Extreme Programming (XP) ha sido seleccionada como el enfoque de desarrollo para este proyecto debido a su flexibilidad, enfoque en la colaboración con el cliente y énfasis en la calidad del software. XP es una metodología que busca mejorar la productividad y la calidad del producto final mediante la implementación de prácticas ágiles y técnicas de desarrollo que fomentan la adaptabilidad y el feedback continuo
 
