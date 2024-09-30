@@ -51,6 +51,69 @@ Para el desarrollo de la aplicación móvil para la estética canina Platón, se
     -	Tras la aprobación del Pull Request, se fusiona la rama en la rama principal. Esto actualiza la base de código con la nueva funcionalidad.
     -	Se puede realizar un despliegue automático a un entorno de pruebas o producción, dependiendo de la configuración del proyecto y las prácticas del equipo.
   
+# Estrategia de Despliegue
+
+La estrategia de despliegue **Blue-Green Deployment** es un enfoque que permite realizar actualizaciones de software con el mínimo tiempo de inactividad y con un riesgo reducido. En este modelo, se utilizan dos entornos de producción, conocidos como **Blue** y **Green**, que son casi idénticos. En un momento dado, uno de estos entornos está activo y en uso por los usuarios, mientras que el otro se prepara para recibir la nueva versión de la aplicación.
+
+**Entornos Blue y Green**
+
+- Entorno Blue: Este es el entorno actual en producción que los usuarios están utilizando. Contiene la versión estable de la aplicación y está completamente operativo. Todos los usuarios acceden a este entorno mientras se llevan a cabo los desarrollos y pruebas en el entorno Green.
+- Entorno Green: Este entorno es donde se despliega la nueva versión de la aplicación. Se realizan todas las pruebas necesarias para asegurar que la versión es estable y cumple con todos los requisitos funcionales. Una vez que la nueva versión se valida, se realiza un cambio de tráfico, dirigiendo a los usuarios al entorno Green.
+
+**Proceso de CI/CD**
+
+Para implementar eficientemente la estrategia de Blue-Green Deployment, se integrará un proceso de Integración Continua/Despliegue Continuo (CI/CD). Esto asegurará que las actualizaciones de la aplicación se realicen de manera automática y que se mantenga la calidad del software en cada fase del desarrollo. A continuación, se describen las fases clave del proceso CI/CD para el proyecto:
+
+1.	**Integración Continua (CI):**
+    - **Control de Versiones:** Utilizar GitHub como herramienta de control de versiones para gestionar el código fuente. Cada desarrollador crea ramas específicas para sus funcionalidades y, al finalizar, se realizan pull requests para integrar el código al branch principal.
+    - **Pruebas Automatizadas:** Cada vez que se realiza un push al repositorio, se ejecutan automáticamente pruebas unitarias y de integración para verificar que el nuevo código no rompa funcionalidades existentes.
+    -Construcción Automática: Una vez que las pruebas se completan con éxito, se compila automáticamente la aplicación para crear el artefacto que será desplegado en el entorno Green.
+2.	**Despliegue Continuo (CD):**
+    - **Despliegue en el Entorno Green:** El artefacto construido se despliega automáticamente en el entorno Green. Se realizan pruebas adicionales, incluidas pruebas de aceptación, para verificar que la nueva versión funciona como se esperaba.
+    - **Cambio de Tráfico:** Después de validar que la aplicación en el entorno Green está funcionando correctamente, se realiza el cambio de tráfico. Este es un paso crítico, ya que se redirige a los usuarios al nuevo entorno, garantizando una transición sin interrupciones.
+    - **Monitoreo:** Una vez que el entorno Green está activo, se inicia un monitoreo constante para detectar cualquier problema en el rendimiento o en la experiencia del usuario. En caso de que se detecten fallos, se puede revertir rápidamente al entorno Blue, asegurando la continuidad del servicio
 
 
+# Dependencias
+Este proyecto utiliza las siguientes dependencias:
 
+- **Ionic Framework**: Para el desarrollo de aplicaciones móviles.
+- **Angular**: Para la construcción de la interfaz de usuario y la gestión de la lógica de la aplicación.
+- **Capacitor**: Para integrar aplicaciones web con las capacidades nativas de los dispositivos móviles.
+- **Node.js**: Para ejecutar el entorno de desarrollo y gestionar paquetes.
+
+## Instalación del proyecto
+Para instalar las dependencias necesarias y configurar el proyecto, sigue estos pasos:
+
+1. **Instala Node.js**:
+   - Asegúrate de tener Node.js instalado.
+
+2. **Instala Ionic CLI**:
+   - Abre tu terminal y ejecuta el comando para instalar Ionic globalmente:
+     ```bash
+     npm install -g @ionic/cli
+     ```
+
+3. **Clona el Repositorio**:
+   - Clona el repositorio con el siguiente comando:
+     ```bash
+     git clone https://github.com/JafetEsauWerlybi/aplicacionmovilcdm.git
+     ```
+
+4. **Directorio del Proyecto**:
+   - Accede a la carpeta del proyecto para ello navega con el siguiente comando:
+     ```bash
+     cd AppMovil_EsteticaCanina
+     ```
+
+5. **Instala las Dependencias del Proyecto**:
+   - Ejecuta el comando para instalar las dependencias que requiere el proyecto:
+     ```bash
+     npm install
+     ```
+
+6. **Ejecuta la Aplicación**:
+   - Finalmente, puedes iniciar la aplicación en un entorno de desarrollo ejecutando:
+     ```bash
+     ionic serve
+     ```
