@@ -1,0 +1,90 @@
+<ion-content class="ion-padding">
+  <!-- Encabezado del carrito -->
+  <div class="flex justify-between items-center mb-4">
+    <ion-icon (click)="closeModal()" name="chevron-back-outline" class="h-6 w-6" ></ion-icon>
+    <h1 class="text-2xl font-bold text-blue-600">Carrito</h1>
+    <div></div> <!-- Espacio para mantener el diseño centrado -->
+  </div>
+
+  <!-- Tabla de carrito -->
+  <div class="bg-white rounded-lg  p-4">
+    <table class="w-full">
+      <thead>
+        <tr class="text-left text-gray-500 font-semibold">
+          <th class="pb-2">Producto</th>
+          <th class="pb-2">Cantidad</th>
+          <th class="pb-2">Total</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y">
+        <!-- Producto 1 -->
+        <tr class="py-4">
+          <td class="flex items-center py-4">
+            <img src="../../assets/icon/producto_cama2.jpg" alt="Producto 1" class="w-20 h-20 object-cover rounded-lg mr-4">
+            <div>
+              <h3 class="text-md font-semibold">collar</h3>
+              <p class="text-sm text-gray-500">$150</p>
+            </div>
+          </td>
+          <td class="py-4">
+            <div class="flex items-center space-x-2">
+              <ion-button (click)="decrement()">-</ion-button>
+              <p>{{count}}</p>
+              <ion-button (click)="increment()">+</ion-button>
+            </div>
+          </td>
+          <td class="py-4">
+            <p>{{count * 150}}</p>
+          </td>
+        </tr>
+
+        <!-- Producto 2 -->
+        <tr class="py-4">
+          <td class="flex items-center py-4">
+            <img src="../../assets/icon/producto_collar2.jpg" alt="Producto 2" class="w-20 h-20 object-cover rounded-lg mr-4">
+            <div>
+              <h3 class="text-md font-semibold">cama</h3>
+              <p class="text-sm text-gray-500">$150</p>
+            </div>
+          </td>
+          <td class="py-4">
+            <div class="flex items-center space-x-2">
+              <ion-button (click)="decrement()">-</ion-button>
+              <p>{{count}}</p>
+              <ion-button (click)="increment()">+</ion-button>
+            </div>
+          </td>
+          <td class="py-4">
+            <p>{{count * 150}}</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Resumen de costos -->
+  <div class="bg-white rounded-lg p-4 mt-10">
+    <div class="flex justify-between mb-2">
+      <span class="text-gray-600">Subtotal</span>
+      <span>$300.00</span>
+    </div>
+    <div class="flex justify-between mb-2">
+      <span class="text-gray-600">Costo del envío</span>
+      <span>$30.00</span>
+    </div>
+    <div class="flex justify-between mb-2">
+      <span class="text-gray-600">IVA</span>
+      <span>$48.00</span>
+    </div>
+    <hr class="my-2">
+    <div class="flex justify-between mb-4 font-bold">
+      <span>Total</span>
+      <span>$378.00</span>
+    </div>
+
+    <!-- Botón para comprar -->
+    <ion-button expand="block" color="primary" class="rounded-lg mt-10">
+      Comprar
+    </ion-button>
+  </div>
+</ion-content>

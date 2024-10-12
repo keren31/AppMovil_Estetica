@@ -1,12 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-tab3',
-  templateUrl: 'tab3.page.html',
-  styleUrls: ['tab3.page.scss']
+  templateUrl: './tab3.page.html',
+  styleUrls: ['./tab3.page.scss']
 })
 export class Tab3Page {
+  constructor(private modalController: ModalController) {}  // Inyecta ModalController
 
-  constructor() {}
+  isModalOpen = false;
 
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
+  }
+  
 }
+

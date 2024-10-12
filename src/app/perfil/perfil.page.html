@@ -1,0 +1,96 @@
+
+<ion-content [fullscreen]="true">
+  <div class="flex justify-between items-center mb-4 pt-6 ml-4">
+    <ion-icon (click)="goToHome()" name="chevron-back-outline" class="h-8 w-8" ></ion-icon>
+  </div>
+
+  <div class="min-h-screen flex items-center justify-center bg-gray-100">
+    <div class="bg-white p-6 rounded-lg max-w-md w-full">
+      <!-- Imagen de perfil -->
+      <div class="flex justify-center mb-6 mt-1">
+        <img src="../../assets/icon/usuario.png" alt="Profile Avatar" class="w-24 h-24 rounded-full">
+      </div>
+  
+      <!-- Formulario de información del usuario -->
+      <form class="space-y-4">
+        <!-- Campo de Username -->
+        <div class="relative">
+          <label class="block text-sm text-gray-600 mb-1 ml-2">Username</label>
+          <input type="text" value="" class="w-full p-3 border border-blue-500 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <button type="button" class="absolute inset-y-0 right-3 mt-5 flex items-center text-gray-500">
+            <ion-icon class="w-6 h-6" name="pencil-outline"></ion-icon>
+          </button>
+        </div>
+  
+        <!-- Campo de Correo -->
+        <div class="relative">
+          <label class="block text-sm text-gray-600 mb-1 ml-2">Correo</label>
+          <input type="email" value="" class="w-full p-3 border border-blue-500 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <button type="button" class="absolute inset-y-0 right-3 mt-5 flex items-center text-gray-500">
+            <ion-icon class="w-6 h-6" name="pencil-outline"></ion-icon>
+          </button>
+        </div>
+  
+        <!-- Campo de Teléfono -->
+        <div class="relative">
+          <label class="block text-sm text-gray-600 mb-1 ml-2">Telefono</label>
+          <input type="text" value="" class="w-full p-3 border border-blue-500 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <button type="button" class="absolute inset-y-0 right-3 mt-5 flex items-center text-gray-500">
+            <ion-icon class="w-6 h-6" name="pencil-outline"></ion-icon>
+          </button>
+        </div>
+  
+        <!-- Campo de Contraseña -->
+        <div class="relative">
+          <label class="block text-sm text-gray-600 mb-1 ml-2">Contraseña</label>
+          <input type="password" value="" class="w-full p-3 border border-blue-500 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <button type="button" class="absolute inset-y-0 right-3 mt-5 flex items-center text-gray-500">
+            <ion-icon class="w-6 h-6" name="pencil-outline"></ion-icon>
+          </button>
+        </div>
+  
+        <!-- Botón de "Mis pedidos" -->
+        <div class="relative">
+          <input value="Mis pedidos" class="mt-3 w-full p-3 border border-blue-500 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <button type="button" class="absolute inset-y-0 right-3 mt-5 flex items-center text-gray-500">
+            <ion-icon name="chevron-forward-outline" class="mb-5"></ion-icon>
+          </button>
+        </div>
+  
+        <!-- Separador -->
+        <hr class="my-4">
+  
+        <!-- Sección de Settings -->
+        <div>
+          <h3 class="text-lg font-semibold text-gray-700">Settings</h3>
+          <!-- Opción de privacidad -->
+          <button type="button" class="w-full bg-white text-gray-700 py-3 border border-gray-300 rounded-3xl flex justify-between items-center mt-4">
+            <span class="flex items-center">
+              <ion-icon color="primary" class="mr-2 " name="shield-checkmark-outline"></ion-icon>
+              Privacidad
+            </span>
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </button>
+  
+          <!-- Opción de información -->
+          <button type="button" class="w-full bg-white text-gray-700 py-3 border border-gray-300 rounded-3xl flex justify-between items-center mt-4">
+            <span class="flex items-center">
+              <ion-icon color="primary" class="mr-2 " name="information-circle-outline"></ion-icon>
+              Información
+            </span>
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </button>
+  
+          <!-- Opción de Logout -->
+          <button type="button" class="w-full bg-white text-red-600 py-3 border border-red-300 rounded-3xl flex justify-between items-center mt-4">
+            <span class="flex items-center">
+              <ion-icon color="danger" class="mr-2 " name="log-out-outline"></ion-icon>
+              Log out
+            </span>
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</ion-content>

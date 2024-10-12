@@ -1,17 +1,62 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="min-h-screen bg-gray-100 p-4">
+    <!-- Mensaje de bienvenida -->
+    <div class="flex justify-between items-center p-4">
+      <!-- Título "Bienvenido" -->
+      <h1 class="text-2xl font-bold text-blue-600">Bienvenido</h1>
+      
+      <!-- Ícono de perfil con enlace a la página de perfil -->
+      <ion-icon name="person-circle-outline" class="text-4xl text-blue-600 cursor-pointer" (click)="goToProfile()"></ion-icon>
+    </div>
+  
+    <!-- Barra de búsqueda con ícono dentro del input -->
+    <div class="relative mb-6">
+      <input type="text" placeholder="Buscar" class="w-full p-3 pl-10 border border-gray-300 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+      
+      <!-- Ícono de búsqueda -->
+      <div class="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+        <ion-icon name="search-outline" class="text-gray-500"></ion-icon>
+      </div>
+    </div>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  
+    <!-- Banner de servicios -->
+    <div class="bg-blue-100 p-4 rounded-lg flex flex-col justify-between mb-4">
+      <div>
+        <h2 class="text-lg font-semibold text-gray-700">Conoce nuestros servicios y agenda tu cita!</h2>
+      </div>
+      <div class="flex justify-end">
+        <img src="../../assets/icon/perritos-home.png" alt="Perros" class="w-21 h-20">
+      </div>
+    </div>
+    
+  
+    <!-- Banner de productos -->
+    <div class="bg-blue-200 p-4 rounded-lg flex items-center justify-between mb-6">
+      <img src="../../assets/icon/productos-home.png" alt="Productos" class="w-20 h-20">
+      <div>
+        <h2  class="text-lg font-semibold text-gray-700">Los mejores productos</h2>
+      </div>
+      
+    </div>
+  
+    <!-- Sección de servicios -->
+    <h2 class="text-xl font-semibold text-gray-700 mb-4">Servicios</h2>
+    <div class="grid grid-cols-2 gap-4">
+      <!-- Tarjeta de servicio -->
+      <div class="bg-white p-4 rounded-lg shadow-lg">
+        <img src="../../assets/icon/servicio corte de pelo.png" alt="Corte de pelo" class="w-full h-32 object-cover rounded-lg mb-4">
+        <h3 class="text-md font-semibold text-gray-700">Corte de pelo</h3>
+        <a href="/tabs/tab1" class="text-blue-500 text-sm">Ver más</a>
+      </div>
+  
+      <!-- Tarjeta de servicio duplicada -->
+      <div class="bg-white p-4 rounded-lg shadow-lg">
+        <img src="../../assets/icon/servicio corte de pelo.png" alt="Corte de pelo" class="w-full h-32 object-cover rounded-lg mb-4">
+        <h3 class="text-md font-semibold text-gray-700">Corte de pelo</h3>
+        <a href="/tabs/tab1" class="text-blue-500 text-sm">Ver más</a>
+      </div>
+    </div>
+  </div>
+  
 </ion-content>
