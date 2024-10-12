@@ -1,0 +1,50 @@
+<ion-content [fullscreen]="true">
+  <div class="p-8">
+    <!-- Título -->
+    <div class="flex flex-col justify-center items-center">
+      <h1 class="text-xl font-bold text-blue-600 mb-30">Agendar cita</h1>
+
+      <!-- Imagen del perro -->
+      <div class="mb-6">
+        <img src="../../assets/icon/logo_perro.png" alt="Perro" class="w-25 h-24 mt-6 ml-6">
+      </div>
+    </div>
+ 
+    <!-- Formulario -->
+    <form class="w-full h-full">
+      <!-- Campo de Servicio (dropdown) -->
+      <div class="relative">
+        <label class="block mb-3 mt-3 text-gray-600 mb-1 ml-4">Servicio</label>
+        <select
+          class="w-full mb-3 p-3 border border-blue-500 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none">
+          <option value="" disabled selected>Selecciona un servicio</option>
+          <option value="Corte de Pelo">Corte de Pelo</option>
+          <option value="Baño">Baño</option>
+        </select>
+        <div class="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+          <ion-icon name="chevron-down-outline" class="text-gray-500 mt-6"></ion-icon>
+        </div>
+      </div>
+
+      <!-- Campo de Fecha -->
+      <div class="relative">
+        <label class="block mb-3 mt-3 text-gray-600 mb-1 ml-4">Fecha</label>
+        <input type="date"
+          class="w-full p-3 border border-blue-500 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+
+      <!-- Campo de Hora -->
+      <div class="relative">
+        <label class="block mb-3 mt-3 text-gray-600 mb-1 ml-4">Hora</label>
+        <input type="time"
+          class="w-full p-3 border border-blue-500 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+
+      <!-- Botón Agendar -->
+      <!-- Cambié `mt-20` a `mt-10` para un margen más ajustado -->
+      <button type="submit" class="mt-10 w-full bg-blue-500 text-white py-3 rounded-3xl hover:bg-blue-600 transition-colors">
+        Agendar
+      </button>
+    </form>
+  </div>
+</ion-content>

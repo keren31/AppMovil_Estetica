@@ -1,0 +1,75 @@
+<ion-content [fullscreen]="true">
+  <div class="min-h-screen bg-gray-100 p-4">
+    <h1 class="text-xl font-bold text-blue-600 mb-4 mt-5 text-center">Servicios</h1>
+  
+    <!-- Servicio 1 -->
+    <div (click)="setOpen(true)" class="bg-white rounded-lg shadow-lg mb-6 p-4">
+      <img src="../../assets/icon/servicio corte de pelo.png" alt="Servicio de corte de pelo" class="w-full h-48 object-cover rounded-lg mb-4">
+      <div class="flex justify-between items-center mb-2">
+        <h3 class="text-md font-semibold text-gray-700">Servicio de corte de pelo</h3>
+        <p class="text-blue-600 font-bold">$100.00</p>
+      </div>
+      <div class="flex items-center">
+        <!-- Estrellas de calificación (puedes reemplazar con íconos de estrellas) -->
+        <ion-icon name="star" class="text-yellow-500"></ion-icon>
+        <ion-icon name="star" class="text-yellow-500"></ion-icon>
+        <ion-icon name="star" class="text-yellow-500"></ion-icon>
+        <ion-icon name="star" class="text-yellow-500"></ion-icon>
+        <ion-icon name="star" class="text-yellow-500"></ion-icon>
+      </div>
+    </div>
+  
+    <!-- Servicio 2 -->
+    <div class="bg-white rounded-lg shadow-lg mb-6 p-4">
+      <img src="../../assets/icon/servicio de baño.jpg" alt="Servicio de Baño" class="w-full h-48 object-cover rounded-lg mb-4">
+      <div class="flex justify-between items-center mb-2">
+        <h3 class="text-md font-semibold text-gray-700">Servicio de Baño</h3>
+        <p class="text-blue-600 font-bold">$100.00</p>
+      </div>
+      <div class="flex items-center">
+        <!-- Estrellas de calificación (puedes reemplazar con íconos de estrellas) -->
+        <ion-icon name="star" class="text-yellow-500"></ion-icon>
+        <ion-icon name="star" class="text-yellow-500"></ion-icon>
+        <ion-icon name="star" class="text-yellow-500"></ion-icon>
+        <ion-icon name="star" class="text-yellow-500"></ion-icon>
+        <ion-icon name="star" class="text-yellow-500"></ion-icon>
+      </div>
+    </div>
+    <!-- Servicio 3 -->
+    <div class="bg-white rounded-lg shadow-lg mb-6 p-4">
+      <img src="../../assets/icon/servicio de baño.jpg" alt="Servicio de Baño" class="w-full h-48 object-cover rounded-lg mb-4">
+      <div class="flex justify-between items-center mb-2">
+        <h3 class="text-md font-semibold text-gray-700">Servicio de Baño</h3>
+        <p class="text-blue-600 font-bold">$100.00</p>
+      </div>
+      <div class="flex items-center">
+        <!-- Estrellas de calificación (puedes reemplazar con íconos de estrellas) -->
+        <ion-icon name="star" class="text-yellow-500"></ion-icon>
+        <ion-icon name="star" class="text-yellow-500"></ion-icon>
+        <ion-icon name="star" class="text-yellow-500"></ion-icon>
+        <ion-icon name="star" class="text-yellow-500"></ion-icon>
+        <ion-icon name="star" class="text-yellow-500"></ion-icon>
+      </div>
+    </div>
+  
+    
+  </div>
+
+ 
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Modal</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="setOpen(false)">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <app-detalleservicio></app-detalleservicio>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+  
+</ion-content>

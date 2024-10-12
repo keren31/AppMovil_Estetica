@@ -1,0 +1,77 @@
+<ion-content [fullscreen]="true">
+  <div class="min-h-screen bg-gray-100 p-4">
+    <!-- Encabezado de la tienda -->
+    <div class="flex ml-20 justify-between items-center mb-4">
+      <!-- Título centrado -->
+      <h1 class="text-xl font-bold text-blue-600 mx-auto">Tienda</h1>
+    
+      <!-- Icono del carrito a la derecha -->
+      <ion-icon name="cart-outline" class="text-xl ml-auto" (click)="openCarritoModal()"></ion-icon>
+    </div>
+
+    <!-- Barra de búsqueda con ícono dentro del input -->
+    <div class="relative mb-6">
+      <input type="text" placeholder="Buscar" class="w-full p-3 pl-10 border border-gray-300 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+      
+      <!-- Ícono de búsqueda -->
+      <div class="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+        <ion-icon name="search-outline" class="text-gray-500"></ion-icon>
+      </div>
+    </div>
+
+    <!-- Categorías con iconos -->
+    <div class="flex items-center justify-between mb-4 space-x-2">
+      <div class="flex flex-col items-center">
+        <ion-icon name="tennisball-outline" class="text-3xl text-gray-500"></ion-icon>
+        <span class="text-sm text-gray-500">Juguetes</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <ion-icon name="medal-outline" class="text-3xl text-gray-500"></ion-icon>
+        <span class="text-sm text-gray-500">Collares</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <ion-icon name="heart-circle-outline" class="text-3xl text-gray-500"></ion-icon>
+        <span class="text-sm text-gray-500">Correas</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <ion-icon name="paw-outline" class="text-3xl text-gray-500"></ion-icon>
+        <span class="text-sm text-gray-500">Accesorios</span>
+      </div>
+      <ion-icon name="chevron-forward-outline" class="text-xl"></ion-icon>
+    </div>
+
+    <!-- Productos en formato grid -->
+    <div class="grid grid-cols-2 gap-4">
+      <!-- Producto 1 -->
+      <div class="bg-white p-4 rounded-lg shadow-lg h-60">
+        <img src="../../assets/icon/producto_collar2.jpg" alt="Collar" class="w-full h-32 object-cover rounded-lg mb-4">
+        <h3 class="text-md font-semibold text-gray-700">Collar</h3>
+        <div class="flex justify-between items-center">
+          <p class="text-lg font-bold text-gray-700">$150.00</p>
+        <div class="flex justify-end">
+          <button class="p-2 bg-gray-100 rounded-full">
+            <ion-icon name="cart-outline" class="text-xl text-blue-500"></ion-icon>
+          </button>
+        </div>
+        </div>
+      </div>
+
+      <!-- Producto 2 -->
+      <div class="bg-white p-4 rounded-lg shadow-lg h-60">
+        <img src="../../assets/icon/producto_collar3.png" alt="Collar" class="w-full h-30 object-cover rounded-lg mb-4">
+        <h3 class="text-md font-semibold text-gray-700">Collar</h3>
+        <div class="flex justify-between items-center">
+          <p class="text-lg font-bold text-gray-700">$180.00</p>
+        <div class="flex justify-end">
+          <button class="p-2 bg-gray-100 rounded-full">
+            <ion-icon name="cart-outline" class="text-xl text-blue-500"></ion-icon>
+          </button>
+        </div>
+        </div>
+      </div>
+
+      <!-- Más productos aquí -->
+    </div>
+  </div>
+</ion-content>
+
