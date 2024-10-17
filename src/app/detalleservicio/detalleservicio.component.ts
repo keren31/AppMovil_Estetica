@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-detalleservicio',
@@ -7,7 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetalleservicioComponent  implements OnInit {
 
-  constructor() { }
+
+  @Input() servicio: any;  // Recibe el servicio desde el moda
+  
+  constructor(private modalController: ModalController, private router: Router) { }
+
+  async closeModal() {
+    await this.modalController.dismiss();  // Cierra el modal
+  }
+
 
   ngOnInit() {}
 

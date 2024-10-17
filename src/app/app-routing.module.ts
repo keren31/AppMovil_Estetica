@@ -8,15 +8,6 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'tabs/tab3',
-    pathMatch: 'full'
-  },
-  {
-    path: 'tab3',  // Ruta hacia Tab3Page
-    loadChildren: () => import('./tab3/tab3.module').then(m => m.Tab3PageModule)
-  },
-  {
-    path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
@@ -38,10 +29,6 @@ const routes: Routes = [
   {
     path: 'actualizarcontra',
     loadChildren: () => import('./actualizarcontra/actualizarcontra.module').then( m => m.ActualizarcontraPageModule)
-  },
-  {
-    path: 'tab4',
-    loadChildren: () => import('./tab4/tab4.module').then( m => m.Tab4PageModule)
   },
   {
     path: 'servicios',
