@@ -13,11 +13,6 @@ export class CarritoPage implements OnInit {
 
   constructor(private modalController: ModalController, private router: Router) {}  // Inyecta el Router
 
-  // Método para redirigir a la página de perfil
-  goToProfile() {
-    this.router.navigate(['/tabs/tab3']);  // Navega a la página de perfil (ajusta la ruta si es necesario)
-  }
-
   async closeModal() {
     await this.modalController.dismiss();  // Cierra el modal
   }
