@@ -38,7 +38,7 @@ jobs:
 
        # 4. Levantar la aplicación de Angular
       - name: Start Angular App
-        run: npm run start &
+        run: npx ionic serve --port 8100 &
         env:
           CI: true
 
