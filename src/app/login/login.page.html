@@ -7,11 +7,11 @@
       </div>
       <form (ngSubmit)="onSubmit()" class="space-y-4">
         <div>
-          <input  type="text" [(ngModel)]="email"  name="email" placeholder="Email" class="w-full p-3 border border-blue-500 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <input data-testid="email-input"  type="text" [(ngModel)]="email"  name="email" placeholder="Email" class="w-full p-3 border border-blue-500 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500">
         </div>
         <div class="relative">
-          <input [type]="passwordVisible ? 'text' : 'password'" [(ngModel)]="password" name="password" placeholder="Contraseña" class="w-full p-3 border border-blue-500 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500">
-          <button type="button" (click)="togglePasswordVisibility()" class="absolute inset-y-0 right-3 flex items-center text-gray-500">
+          <input [type]="passwordVisible ? 'text' : 'password'" data-testid="password-input" [(ngModel)]="password" name="password" placeholder="Contraseña" class="w-full p-3 border border-blue-500 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <button type="button"  (click)="togglePasswordVisibility()" class="absolute inset-y-0 right-3 flex items-center text-gray-500">
             <!-- Icono de ojo aquí, puedes reemplazar con el ícono adecuado -->
             <ion-icon *ngIf="passwordVisible" name="eye-outline"></ion-icon>
             <ion-icon *ngIf="!passwordVisible"  name="eye-off-outline"></ion-icon>
@@ -23,7 +23,7 @@
           <a href="recuperarcontra" class="text-blue-500 text-sm hover:underline">¿Olvidaste tu contraseña?</a>
         </div>
         <div class="">
-          <ion-button type="submit" style="text-transform: none;" class="w-full mt-5" shape="round">Login</ion-button>
+          <ion-button data-testid="login-submit-button"  type="submit" style="text-transform: none;" class="w-full mt-5" shape="round">Login</ion-button>
         </div>
         <div class="text-center text-sm text-gray-500">
           ¿Sin cuenta? <a href="registro" class="text-blue-500 hover:underline">Regístrate ahora</a>

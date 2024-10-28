@@ -46,7 +46,6 @@ export class LoginService {
           return false;
         }
         if (result === "Contraseña correcta") {
-          this.router.navigate(['/tabs']);
           return true;
         }
         return false;
