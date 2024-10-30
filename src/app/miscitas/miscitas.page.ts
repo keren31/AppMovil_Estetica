@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-miscitas',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MiscitasPage implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  goToPerfil() {
+    this.router.navigate(['/perfil']);  // Navega a la página de perfil (ajusta la ruta si es necesario)
+  }
 }

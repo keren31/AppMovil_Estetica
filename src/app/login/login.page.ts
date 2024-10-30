@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { LoginService } from '../services/login.service';
 import { environment } from 'src/environments/environment';
 import { ToastController } from '@ionic/angular';
@@ -49,6 +48,7 @@ export class LoginPage implements OnInit {
   async login(){
     this.bol = await this.serviceLogin.login(this.email, this.password);
     if(this.bol){
+      await this.serviceLogin.obtenerDatos(this.email);
       console.log('aqui se obtendran los datos del usuario')
     }
     else await this.presentToast('Verifique los datos por favor') 
