@@ -7,16 +7,18 @@
       <h1 class="font-bold mb-8 text-2xl text-center">Recuperar contraseña</h1>
 
       <p class="text-lg text-gray-600 mb-4 ml-3 mt-5">Codigo de verificación</p>
-      <form class="space-y-4">
-        <div class="flex justify-between">
-          <input size="1" class="w-[60px] p-3 border border-blue-500 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
-          <input size="1" class="w-[60px] p-3 border border-blue-500 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
-          <input size="1" class="w-[60px] p-3 border border-blue-500 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
-          <input size="1" class="w-[60px] p-3 border border-blue-500 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+      <form class="space-y-2" (submit)="verificarToken()">
+        <div class="flex flex-wrap justify-between">
+          <input size="1" name="digit1" id="digit1" (input)="updateToken()" class="w-[45px] p-3 border border-blue-500 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <input size="1" name="digit2" id="digit2" (input)="updateToken()" class="w-[45px] p-3 border border-blue-500 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <input size="1" name="digit3" id="digit3" (input)="updateToken()" class="w-[45px] p-3 border border-blue-500 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <input size="1" name="digit4" id="digit4" (input)="updateToken()" class="w-[45px] p-3 border border-blue-500 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <input size="1" name="digit5" id="digit5" (input)="updateToken()" class="w-[45px] p-3 border border-blue-500 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <input size="1" name="digit6" id="digit6" (input)="updateToken()" class="w-[45px] p-3 border border-blue-500 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
         </div>
        
         <div class="">
-          <ion-button style="text-transform: none;" class="w-full mt-8" shape="round">Enviar </ion-button>
+          <ion-button type="submit"  style="text-transform: none;" class="w-full mt-8" shape="round">Enviar </ion-button>
         </div>
         
       </form>
