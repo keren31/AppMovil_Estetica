@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { MiscitasPageRoutingModule } from './miscitas-routing.module';
 
 import { MiscitasPage } from './miscitas.page';
+import { EditarCitaComponent } from '../editar-cita/editar-cita.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { MiscitasPage } from './miscitas.page';
     IonicModule,
     MiscitasPageRoutingModule
   ],
-  declarations: [MiscitasPage]
+  declarations: [MiscitasPage,EditarCitaComponent]
 })
 export class MiscitasPageModule {}
