@@ -15,6 +15,7 @@ export class MispedidosPage implements OnInit {
   misPedidos: Pedidos = { Pedidos: [] };
   loading: boolean = true;
   userData!: UserData;
+  isLoading: boolean = true;
 
   ionViewWillEnter() {
     this.datosUsuario();
