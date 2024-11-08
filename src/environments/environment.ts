@@ -20,7 +20,12 @@ export const environment = {
     misCitas: 'https://lacasadelmariscoweb.azurewebsites.net//api/CasaDelMarisco/ObtenerCitasCANPorId?idUsuario=',
     estadoCita: 'https://lacasadelmariscoweb.azurewebsites.net//api/CasaDelMarisco/CambiarEstadoCitas',
     traerCitaDetalle: 'https://lacasadelmariscoweb.azurewebsites.net//api/CasaDelMarisco/TraerCitaPorID', 
-    actualizarCita: 'https://lacasadelmariscoweb.azurewebsites.net/api/CasaDelMarisco/EditarCita'
+    actualizarCita: 'https://lacasadelmariscoweb.azurewebsites.net/api/CasaDelMarisco/EditarCita',
+    traerDirecciones: 'https://lacasadelmariscoweb.azurewebsites.net/api/TraerDirecciones?UsuarioID=',
+    agregarProductos: 'https://lacasadelmariscoweb.azurewebsites.net/api/AgregarProductosCarritoCAN',
+    quitarProductos: 'https://lacasadelmariscoweb.azurewebsites.net/api/QuitarProductosCarritoCAN',
+    traerCarritoID: 'https://lacasadelmariscoweb.azurewebsites.net/api/TraerCarritoPorUsuarioCAN?idUsuario=',
+    agregarPedido: 'https://lacasadelmariscoweb.azurewebsites.net/api/AgregarPedidoCAN'
   },
 };
 
