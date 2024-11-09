@@ -22,7 +22,7 @@ export const environment = {
     traerCitaDetalle: 'https://lacasadelmariscoweb.azurewebsites.net//api/CasaDelMarisco/TraerCitaPorID', 
     actualizarCita: 'https://lacasadelmariscoweb.azurewebsites.net/api/CasaDelMarisco/EditarCita',
     traerDirecciones: 'https://lacasadelmariscoweb.azurewebsites.net/api/TraerDirecciones?UsuarioID=',
-    agregarProductos: 'https://lacasadelmariscoweb.azurewebsites.net/api/AgregarProductosCarritoCAN',
+    agregarProductoCarrito: 'https://lacasadelmariscoweb.azurewebsites.net/api/AgregarProductosCarritoCAN',
     quitarProductos: 'https://lacasadelmariscoweb.azurewebsites.net/api/QuitarProductosCarritoCAN',
     traerCarritoID: 'https://lacasadelmariscoweb.azurewebsites.net/api/TraerCarritoPorUsuarioCAN?idUsuario=',
     agregarPedido: 'https://lacasadelmariscoweb.azurewebsites.net/api/AgregarPedidoCAN'
