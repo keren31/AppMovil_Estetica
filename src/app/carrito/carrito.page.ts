@@ -19,6 +19,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./carrito.page.scss'],
 })
 export class CarritoPage implements OnInit {
+  isStripeModalOpen = false; // Variable para controlar el estado del modal
   userData!: UserData;
   productosCarrito: Carrito[] = [];
   iva=0;
@@ -57,6 +58,15 @@ export class CarritoPage implements OnInit {
   }
   ionViewWillEnter() {
     this.traerDatosUsuario();
+  }
+
+   // Función para abrir el modal de Stripe
+   openStripeModal() {
+    this.isStripeModalOpen = true;
+  }
+   // Función para cerrar el modal de Stripe
+   closeStripeModal() {
+    this.isStripeModalOpen = false;
   }
 
 
