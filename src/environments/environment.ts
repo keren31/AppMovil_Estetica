@@ -17,16 +17,24 @@ export const environment = {
     actializarContra: 'https://lacasadelmariscoweb.azurewebsites.net/api/CasaDelMarisco/RecuperarContrasena',
     horariosDisponibles: 'https://lacasadelmariscoweb.azurewebsites.net/api/CasaDelMarisco/ObtenerHorasDisponibles?fecha=',
     agendarCita: 'https://lacasadelmariscoweb.azurewebsites.net//api/CasaDelMarisco/AgregarCita?usuario_id=', 
-    misCitas: 'https://lacasadelmariscoweb.azurewebsites.net//api/CasaDelMarisco/ObtenerCitasCANPorId?idUsuario=',
-    estadoCita: 'https://lacasadelmariscoweb.azurewebsites.net//api/CasaDelMarisco/CambiarEstadoCitas',
-    traerCitaDetalle: 'https://lacasadelmariscoweb.azurewebsites.net//api/CasaDelMarisco/TraerCitaPorID', 
+    misCitas: 'https://lacasadelmariscoweb.azurewebsites.net/api/CasaDelMarisco/ObtenerCitasCANPorId?idUsuario=',
+    estadoCita: 'https://lacasadelmariscoweb.azurewebsites.net/api/CasaDelMarisco/CambiarEstadoCitas',
+    traerCitaDetalle: 'https://lacasadelmariscoweb.azurewebsites.net/api/CasaDelMarisco/TraerCitaPorID', 
     actualizarCita: 'https://lacasadelmariscoweb.azurewebsites.net/api/CasaDelMarisco/EditarCita',
-    traerDirecciones: 'https://lacasadelmariscoweb.azurewebsites.net/api/TraerDirecciones?UsuarioID=',
-    agregarProductoCarrito: 'https://lacasadelmariscoweb.azurewebsites.net/api/AgregarProductosCarritoCAN',
-    quitarProductos: 'https://lacasadelmariscoweb.azurewebsites.net/api/QuitarProductosCarritoCAN',
-    traerCarritoID: 'https://lacasadelmariscoweb.azurewebsites.net/api/TraerCarritoPorUsuarioCAN?idUsuario=',
-    agregarPedido: 'https://lacasadelmariscoweb.azurewebsites.net/api/AgregarPedidoCAN'
+    traerDirecciones: 'https://lacasadelmariscoweb.azurewebsites.net/api/CasaDelMarisco/TraerDirecciones?UsuarioID=',
+    agregarProductoCarrito: 'https://lacasadelmariscoweb.azurewebsites.net/api/CasaDelMarisco/AgregarProductosCarritoCAN',
+    quitarProductos: 'https://lacasadelmariscoweb.azurewebsites.net/api/CasaDelMarisco/QuitarProductosCarritoCAN',
+    traerCarritoID: 'https://lacasadelmariscoweb.azurewebsites.net/api/CasaDelMarisco/TraerCarritoPorUsuarioCAN?idUsuario=',
+    agregarPedido: 'https://lacasadelmariscoweb.azurewebsites.net/api/CasaDelMarisco/AgregarPedidoCAN',
+    traerProductoPorId: 'https://lacasadelmariscoweb.azurewebsites.net/api/CasaDelMarisco/TraerProductoPorIDCAN',
+    verificarCorreoRegistro: 'https://lacasadelmariscoweb.azurewebsites.net/api/CasaDelMarisco/VerificarCorreo?Correo=',
+    agregarUsuarios: 'https://lacasadelmariscoweb.azurewebsites.net/api/CasaDelMarisco/AgregarUsuarios?Nombre=',
   },
+  stripe:{
+    publishableKey: 'pk_test_51QJNwTL7B8edvQLxcXAxjJTDJ5jD1BtDxSJbDam9BK8YRnnHaYkUttd3DqQyNcsNSqNRI61mHFVlyqhjb4pLxcY300c85IWxmt',
+    secretKey: 'sk_test_51QJNwTL7B8edvQLx2zjx6YPNHdlqk8MfavP3hP1j4gdkg2zYWvx5qDSs2ODcvaJf2h9HPXow56AcqiJJxjbORYuG00VyJwNd0s'
+  },
+  api: 'https://lacasadelmariscoweb.azurewebsites.net/api/EsteticaApi/'
 };
 
 

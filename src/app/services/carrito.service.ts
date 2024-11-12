@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
-import { UserData } from '../interface/userData';
-import { ToastController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { ProductosService } from './productos.service';
-import { Products } from '../interface/productos';
+import { Carrito } from '../interface/carrito';
 
 
 @Injectable({
@@ -35,22 +32,28 @@ export class CarritoService {
       });
   }
 
-  // Método para obtener los productos en el carrito del usuario
-  obtenerProductoCarrito(idUsuario: number): Promise<any[]> {
+  eliminardelCarrito(idUsuario: number, idProducto: number,productoAEliminar:number): Promise<boolean> {
     const data = new FormData();
     data.append('idUsuario', idUsuario.toString());
+    data.append('idProducto', idProducto.toString());
+    data.append("idCarritoProductos", productoAEliminar.toString())
 
-    return this.http.post(this.apiEndpoints.traerCarritoID, data)
+    return this.http.post(this.apiEndpoints.quitarProductos, data)
       .toPromise()
       .then((result: any) => {
-        if (Array.isArray(result)) {
-          return result;
+        if (result === 'Exito') {
+          return true;
         }
-        return []; // Retorna un arreglo vacío si la respuesta no es la esperada
+        return false;
       })
       .catch((error) => {
-        console.error('Error al obtener productos del carrito:', error);
-        return []; // Retorna un arreglo vacío en caso de error
+        console.error('Error al agregar al carrito:', error);
+        return false;
       });
+  }
+
+  // Método para obtener los productos en el carrito del usuario
+  obtenerProductoCarrito(idUsuario: number){
+    return this.http.get<Carrito[]>(this.apiEndpoints.traerCarritoID + idUsuario)
   }
 }
