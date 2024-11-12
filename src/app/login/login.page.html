@@ -1,46 +1,63 @@
+<ion-content [fullscreen]="true" class="flex items-center justify-center bg-purple-100">
+  <!-- Contenedor de la imagen -->
+  <div class="w-full max-w-sm bg-blue-100 flex justify-center items-center pt-16 pb-10 relative">
+    <img src="../../assets/icon/perritos1.png" alt="Dog Logo" class=" shadow-lg">
+  </div>
 
-<ion-content [fullscreen]="true">
-  <div class=" flex items-center p-2 justify-center ">
-    <div class="bg-white p-6 rounded-lg  max-w-md w-full">
-      <div class="flex justify-center mb-4">
-        <img src="../../assets/icon/logo_perro.png" alt="Dog Logo" class="w-[150px] h-[120px] mt-10 mb-5">
-      </div>
-      <form (ngSubmit)="onSubmit()" class="space-y-4">
-        <div>
-          <input  type="text" [(ngModel)]="email"  name="email" placeholder="Email" class="w-full p-3 border border-blue-500 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500">
-        </div>
-        <div class="relative">
-          <input [type]="passwordVisible ? 'text' : 'password'" [(ngModel)]="password" name="password" placeholder="Contraseña" class="w-full p-3 border border-blue-500 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500">
-          <button type="button" (click)="togglePasswordVisibility()" class="absolute inset-y-0 right-3 flex items-center text-gray-500">
-            <!-- Icono de ojo aquí, puedes reemplazar con el ícono adecuado -->
-            <ion-icon *ngIf="passwordVisible" name="eye-outline"></ion-icon>
-            <ion-icon *ngIf="!passwordVisible"  name="eye-off-outline"></ion-icon>
-          </button>
-        </div>
-        <div class="mt-20 text-start">
-          <a href="recuperarcontra" class="text-blue-500 text-sm hover:underline">¿Olvidaste tu contraseña?</a>
-        </div>
-        <div class="">
-          <ion-button type="submit" style="text-transform: none;" class="w-full mt-5" shape="round">Login</ion-button>
-        </div>
-        <div class="text-center text-sm text-gray-500">
-          ¿Sin cuenta? <a href="registro" class="text-blue-500 hover:underline">Regístrate ahora</a>
-        </div>
-      </form>
-      <div class="flex items-center my-4 mt-5">
-        <div class="flex-grow border-t border-gray-300"></div>
-        <span class="mx-4 text-gray-500 text-sm">or</span>
-        <div class="flex-grow border-t border-gray-300"></div>
-      </div>
-      <ion-button style="text-transform: none;" fill="outline" class="w-full" shape="round" >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="24" height="24">
-          <path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.8 30.2 37 24 37c-7 0-13-6-13-13s6-13 13-13c3.2 0 6.2 1.2 8.5 3.2l6.3-6.3C34.8 4 29.7 2 24 2 11.9 2 2 11.9 2 24s9.9 22 22 22c11.2 0 21-8 21-22 0-1.3-.1-2.7-.5-4z"/>
-          <path fill="#34A853" d="M6.3 14.7l7 5.1C15.3 16.5 19.3 14 24 14c3.2 0 6.2 1.2 8.5 3.2l6.3-6.3C34.8 4 29.7 2 24 2 16.1 2 9.1 6.5 6.3 14.7z"/>
-          <path fill="#FBBC05" d="M24 46c5.4 0 10-1.8 13.8-4.8l-6.4-5.3C28.5 37.8 26.3 38.5 24 38.5c-6.1 0-11.2-4-13.1-9.6l-7 5.4C8.9 41.6 15.9 46 24 46z"/>
-          <path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1.7 4.6-6 8-11.8 8-3.2 0-6.2-1.2-8.5-3.2l-6.4 6.3C13.9 42 18.7 44 24 44c11.2 0 21-8 21-22 0-1.3-.1-2.7-.5-4z"/>
-        </svg>
-        <p class="text-gray-500 ml-6" >Sign Up With Google </p>
-      </ion-button>
+  <!-- Contenedor del formulario con borde redondeado y superposición -->
+  <div class="relative bg-white rounded-t-3xl max-w-sm w-full px-6 pt-8 pb-10 -mt-16 z-10">
+    <!-- Texto de bienvenida -->
+    <div class="text-center mb-6">
+      <h2 class="text-xl font-semibold text-blue-700">Éstetica Canina Platón</h2>
+      <p class="text-gray-500">Inicia sesión para continuar</p>
     </div>
+
+    <!-- Formulario de login -->
+    <form (ngSubmit)="onSubmit()" class="space-y-4">
+      <div>
+        <input
+          type="text"
+          [(ngModel)]="email"
+          name="email"
+          placeholder="Email"
+          class="w-full p-3 border border-blue-500 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+      </div>
+
+      <div class="relative">
+        <input
+          [type]="passwordVisible ? 'text' : 'password'"
+          [(ngModel)]="password"
+          name="password"
+          placeholder="Password"
+          class="w-full p-3 border border-blue-500 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+        <button
+          type="button"
+          (click)="togglePasswordVisibility()"
+          class="absolute inset-y-0 right-3 flex items-center text-gray-500"
+        >
+          <ion-icon [name]="passwordVisible ? 'eye-outline' : 'eye-off-outline'" class="w-5 h-5"></ion-icon>
+        </button>
+      </div>
+
+      <div class="text-end">
+        <a href="recuperarcontra" class="text-blue-500 text-sm hover:underline">¿Olvidaste tu contraseña?</a>
+      </div>
+
+      <!-- Botón de inicio de sesión -->
+      <button
+        type="submit"
+        expand="block"
+        class="w-full mt-5 bg-blue-500 text-white py-3 rounded-3xl hover:bg-blue-600 transition-colors"
+        style="text-transform: none; font-size: 1rem; font-weight: 500;"
+      >
+        Sign in
+      </button>
+
+      <div class="text-center text-sm text-gray-500 mt-4">
+        ¿Sin cuenta? <a href="registro" class="text-blue-500 hover:underline">Registrate</a>
+      </div>
+    </form>
   </div>
 </ion-content>

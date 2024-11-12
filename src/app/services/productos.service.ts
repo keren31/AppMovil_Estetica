@@ -9,9 +9,18 @@ import { Products } from '../interface/productos';
 })
 export class ProductosService {
   mostrarproductosUrl: string = environment.apiEndpoints.mostrarproductosUrl;
+  traerProductosporID: string= environment.apiEndpoints.traerProductoPorId;
   constructor(private router: Router, private http: HttpClient) { }
 
   getALLProducts(){
     return this.http.get<Products[]>(this.mostrarproductosUrl);
   }
+
+  obtenerDetallesProducto(idProducto: number){
+    const formdata = new FormData();
+    formdata.append("idProducto", idProducto.toString());
+
+    return this.http.post<Products>(this.traerProductosporID,formdata);
+  }
+
 }

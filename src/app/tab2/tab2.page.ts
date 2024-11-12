@@ -4,7 +4,8 @@ import Swal from 'sweetalert2';
 import { UserData } from '../interface/userData';
 import { PerfilService } from '../services/perfil.service';
 import { Servicios } from '../interface/servicios';
-import { ToastController } from '@ionic/angular';
+import { ToastController, ModalController } from '@ionic/angular';
+import { FeedbackComponent } from '../feedback/feedback.component';
 
 @Component({
   selector: 'app-tab2',
@@ -23,7 +24,7 @@ export class Tab2Page implements OnInit {
   dataServicio: Servicios[] = [];
   horariosDisponibles: { hora: string, ocupada: boolean }[] = [];
 
-  constructor(private citaService: CitaService, private perfilService: PerfilService,  private toastController: ToastController ) {}
+  constructor(private citaService: CitaService, private perfilService: PerfilService,  private toastController: ToastController, private modalController: ModalController ) {}
 
   ngOnInit() {
     this.obtenerDatosServicios();
@@ -99,6 +100,8 @@ export class Tab2Page implements OnInit {
       this.fechaCita = '';
       this.horaCita = '';
       this.servicio = '';
+
+      this.abrirFeedbackModal();
     } else {
       // Mostrar toast de error
       this.mostrarToast('No se pudo agregar la cita. Inténtalo de nuevo más tarde', 'danger', 'close-circle-outline');
@@ -116,5 +119,11 @@ export class Tab2Page implements OnInit {
       icon: icono
     });
     toast.present();
+  }
+  async abrirFeedbackModal() {
+    const modal = await this.modalController.create({
+      component: FeedbackComponent // Asegúrate de usar el nombre correcto de tu componente de feedback
+    });
+    return await modal.present();
   }
 }
