@@ -12,9 +12,11 @@
       <h1 class="text-2xl font-bold text-blue-600">Mis pedidos</h1>
       <div></div> <!-- Espacio para mantener el diseño centrado -->
     </div>
-  
+    <div *ngIf="misPedidos.Pedidos.length === 0">
+      <p class="m-4 justify-center text-center">No tienes pedidos.</p>
+    </div>
     <!-- Tarjeta de pedido 1 -->
-    <div *ngIf="misPedidos.Pedidos.length > 0">
+    <div>
       <div *ngFor="let pedido of misPedidos.Pedidos"  class="bg-white p-4 rounded-lg shadow-lg mb-4">
         <div class="flex items-center mb-2">
           <img src="../../assets/icon/logo_perro.png" alt="Icono de perro" class="w-10 h-10 mr-4">
