@@ -15,6 +15,10 @@ describe('DetalleservicioComponent', () => {
 
     fixture = TestBed.createComponent(DetalleservicioComponent);
     component = fixture.componentInstance;
+
+    // Proporciona un valor simulado para la propiedad o el objeto que contiene 'imagen'
+    component.servicio = { imagen: 'ruta/a/la/imagen.jpg' }; // Ajusta 'servicio' al nombre correcto de la propiedad en tu componente
+
     fixture.detectChanges();
   }));
 

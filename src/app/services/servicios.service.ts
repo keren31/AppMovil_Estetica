@@ -12,6 +12,7 @@ export class ServiciosService {
   constructor(private router: Router, private http: HttpClient) { }
 
   getALLServicios(){
+    console.log('Llamada a la API de servicios');
     return this.http.get<Servicios[]>(this.mostrarServiciosUrl);
   }
 }
