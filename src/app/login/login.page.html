@@ -20,6 +20,7 @@
           [(ngModel)]="email"
           name="email"
           placeholder="Email"
+          data-testid="email-input"
           class="w-full p-3 border border-blue-500 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500"
         >
       </div>
@@ -30,6 +31,7 @@
           [(ngModel)]="password"
           name="password"
           placeholder="Password"
+          data-testid="password-input"
           class="w-full p-3 border border-blue-500 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500"
         >
         <button
@@ -49,6 +51,7 @@
       <!-- Botón de inicio de sesión -->
       <button
         type="submit"
+        data-testid="login-submit-button"
         expand="block"
         class="w-full mt-5 bg-blue-500 text-white py-3 rounded-3xl hover:bg-blue-600 transition-colors"
         style="text-transform: none; font-size: 1rem; font-weight: 500;"
