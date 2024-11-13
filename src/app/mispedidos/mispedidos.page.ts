@@ -62,7 +62,7 @@ export class MispedidosPage implements OnInit {
     console.log('ID de usuario para cargar pedidos:', this.userData.idUsuario);
     this.pedidosService.getPedidos(this.userData.idUsuario).subscribe(
       (data) => {
-        this.misPedidos = data;
+        this.misPedidos = data || { Pedidos: [] }; // Asigna data o un objeto vacío si data es null o undefined
         this.loading = false;
         console.log('Pedidos cargados:', this.misPedidos);
       },
