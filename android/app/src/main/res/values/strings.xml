@@ -1,7 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">AppMovil</string>
-    <string name="title_activity_main">AppMovil</string>
-    <string name="package_name">io.ionic.starter</string>
-    <string name="custom_url_scheme">io.ionic.starter</string>
+    <string name="app_name">Éstetica Canina Platón</string>
+    <string name="title_activity_main">Éstetica Canina Platón</string>
+    <string name="package_name">com.esteticaplaton.appmovilesteticaplaton</string>
+    <string name="custom_url_scheme">com.esteticaplaton.appmovilesteticaplaton</string>
+    <string name="publishable_key">pk_test_51QJNwTL7B8edvQLxcXAxjJTDJ5jD1BtDxSJbDam9BK8YRnnHaYkUttd3DqQyNcsNSqNRI61mHFVlyqhjb4pLxcY300c85IWxmt</string>
+  <bool name="enable_google_pay">true</bool>
+  <string name="country_code">US</string>
+  <string name="merchant_display_name">Estetica canina</string>
+  <bool name="google_pay_is_testing">true</bool>
 </resources>

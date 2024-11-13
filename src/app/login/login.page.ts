@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { LoginService } from '../services/login.service';
 import { environment } from 'src/environments/environment';
 import { ToastController } from '@ionic/angular';
@@ -44,6 +43,7 @@ export class LoginPage implements OnInit {
     this.bol = await this.serviceLogin.login(this.email, this.password);
     console.log('Resultado de login:', this.bol); 
     if(this.bol){
+      await this.serviceLogin.obtenerDatos(this.email);
       console.log('aqui se obtendran los datos del usuario')
       this.router.navigate(['/tabs']);
       return true;

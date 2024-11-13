@@ -1,48 +1,91 @@
-<ion-content [fullscreen]="true">
-  <div class=" flex items-center p-2 justify-center ">
-    <div class="bg-white p-6 rounded-lg  max-w-md w-full">
-      <div class="flex justify-center mb-4">
-        <img src="../../assets/icon/logo_perro.png" alt="Dog Logo" class="w-[150px] h-[120px] mt-2 mb-5">
-      </div>
-      <form class="space-y-4">
-        <div>
-          <label class="ml-4 mb-2">Email</label>
-          <input type="email" placeholder="Email" class=" mt-2 w-full p-3 border border-blue-500 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500">
-        </div>
-        <div class="">
-          <label class="ml-4 mb-2">Telefono</label>
-          <input type="email" placeholder="Telefono" class="mt-2 w-full p-3 border border-blue-500 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500">
-        </div>
-        <div class="relative">
-          <label class="ml-4 mb-2">Contraseña</label>
-          <input type="password" placeholder="Contraseña" class="mt-2 w-full p-3 border border-blue-500 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500">
-          <button type="button" class="absolute inset-y-0 right-3 mt-8 flex items-center text-gray-500">
-            <!-- Icono de ojo aquí, puedes reemplazar con el ícono adecuado -->
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-              <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-.446 1.511-1.12 2.91-2 4-1.743 1.947-4.197 3-6.542 3-2.345 0-4.8-1.053-6.542-3-.88-1.09-1.554-2.489-2-4z"/>
-            </svg>
-          </button>
-        </div>
-        <div class="relative">
-          <label class="ml-4 mb-2">Contraseña</label>
-          <input type="password" placeholder="Contraseña" class="w-full mt-2 p-3 border border-blue-500 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500">
-          <button type="button" class="absolute inset-y-0 right-3 mt-8 flex items-center text-gray-500">
-            <!-- Icono de ojo aquí, puedes reemplazar con el ícono adecuado -->
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-              <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-.446 1.511-1.12 2.91-2 4-1.743 1.947-4.197 3-6.542 3-2.345 0-4.8-1.053-6.542-3-.88-1.09-1.554-2.489-2-4z"/>
-            </svg>
-          </button>
-        </div>
-       
-        <div class="">
-          <ion-button style="text-transform: none;" class="w-full mt-5" shape="round">Resgistrar</ion-button>
-        </div>
-       
-      </form>
-     
-      
+<ion-content [fullscreen]="true" class="flex items-center justify-center bg-purple-100">
+  <!-- Contenedor de la imagen -->
+  <div class="w-full max-w-sm bg-blue-100 flex justify-center items-center pt-16 pb-10 relative">
+    <img src="../../assets/icon/perritos1.png" alt="Dog Logo" class="shadow-lg">
+  </div>
+
+  <!-- Contenedor del formulario con borde redondeado y superposición -->
+  <div class="relative bg-white rounded-t-3xl shadow-lg max-w-sm w-full px-6 pt-8 pb-10 -mt-16 z-10">
+    <!-- Texto de bienvenida -->
+    <div class="text-center mb-6">
+      <h2 class="text-xl font-semibold text-blue-700">¡Regístrate para unirte!</h2>
+      <p class="text-gray-500">Completa los campos para continuar</p>
     </div>
+
+    <!-- Formulario de registro -->
+    <form (ngSubmit)="registrarUsuario()" class="space-y-4">
+      <div>
+        <input type="text" placeholder="Nombre" [(ngModel)]="nombre" name="nombre" required 
+          class="w-full p-3 border border-blue-500 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+      <div>
+        <input type="text" placeholder="Apellido Paterno" [(ngModel)]="apellidoP" name="apellidoP" required 
+          class="w-full p-3 border border-blue-500 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+      <div>
+        <input type="text" placeholder="Apellido Materno" [(ngModel)]="apellidoM" name="apellidoM" required 
+          class="w-full p-3 border border-blue-500 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+      <div>
+        <input type="email" placeholder="Email" [(ngModel)]="email" name="email" required 
+          class="w-full p-3 border border-blue-500 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+      <div>
+        <input type="tel" placeholder="Teléfono" [(ngModel)]="telefono" name="telefono" required 
+          class="w-full p-3 border border-blue-500 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+      <div class="relative">
+        <input type="date" [(ngModel)]="fechaNac" name="fechaNac" required 
+          class="w-full p-3 border border-blue-500 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none">
+          <div class="absolute inset-y-0 right-3 flex items-center pointer-events-non">
+            <ion-icon name="calendar-clear-outline" class="text-gray-500 mt-[2px]"></ion-icon>
+          </div>
+      </div>
+
+      <!-- Campo de Contraseña con Barra de Fortaleza -->
+      <div class="relative">
+        <input [type]="showPassword ? 'text' : 'password'" placeholder="Contraseña" [(ngModel)]="password" name="password" required 
+          class="w-full p-3 pr-12 border border-blue-500 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+          (input)="evaluarFortalezaPassword(password)" 
+          (focus)="onPasswordFocus()" 
+          (blur)="onPasswordBlur()">
+        <button type="button" (click)="togglePasswordVisibility()" class="absolute inset-y-0 right-3 flex items-center text-gray-500">
+          <ion-icon [name]="showPassword ? 'eye-off-outline' : 'eye-outline'" class="w-6 h-6"></ion-icon>
+        </button>
+      </div>
+
+      <div *ngIf="mostrarBarraFortaleza" class="mt-2">
+        <ion-progress-bar [value]="passwordStrength / 100" 
+          [color]="passwordStrength < 40 ? 'danger' : passwordStrength < 80 ? 'warning' : 'success'">
+        </ion-progress-bar>
+        <p class="text-sm mt-1" [ngClass]="{
+            'text-red-500': passwordStrength < 40, 
+            'text-yellow-500': passwordStrength >= 40 && passwordStrength < 80, 
+            'text-green-500': passwordStrength >= 80
+          }">
+          Fortaleza de la contraseña: {{ passwordStrengthText }}
+        </p>
+      </div>
+
+      <!-- Campo de Confirmación de Contraseña -->
+      <div class="relative">
+        <input [type]="showPassword2 ? 'text' : 'password'" placeholder="Confirmar Contraseña" [(ngModel)]="password2" name="password2" required 
+          class="w-full p-3 pr-12 border border-blue-500 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <button type="button" (click)="togglePasswordVisibility2()" class="absolute inset-y-0 right-3 flex items-center text-gray-500">
+          <ion-icon [name]="showPassword2 ? 'eye-off-outline' : 'eye-outline'" class="w-6 h-6"></ion-icon>
+        </button>
+      </div>
+
+      <!-- Botón de Registro -->
+      <button type="submit" expand="block" 
+        class="w-full mt-5 bg-blue-500 text-white py-3 rounded-3xl hover:bg-blue-600 transition-colors" 
+        style="text-transform: none; font-size: 1rem; font-weight: 500;">
+        Registrar
+      </button>
+
+      <div class="text-center text-sm text-gray-500 mt-4">
+        ¿Ya tienes cuenta? <a href="login" class="text-blue-500 hover:underline">Inicia sesión</a>
+      </div>
+    </form>
   </div>
 </ion-content>

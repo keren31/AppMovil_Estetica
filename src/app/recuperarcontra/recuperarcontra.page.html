@@ -5,13 +5,13 @@
         <img src="../../assets/icon/logo_perro.png" alt="Dog Logo" class="w-[150px] h-[120px] mt-10 mb-5">
       </div>
       <h1 class="font-bold mb-8 text-2xl text-center">Recuperar contraseña</h1>
-      <form class="space-y-4">
+      <form  class="space-y-4" (ngSubmit)="onSubmit()">
         <div>
-          <input type="email" placeholder="Email" class="w-full p-3 border border-blue-500 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <input  type="email" [(ngModel)]="email" name="email" placeholder="Email" class="w-full p-3 border border-blue-500 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500">
         </div>
        
         <div class="">
-          <ion-button style="text-transform: none;" class="w-full mt-5" shape="round">Enviar </ion-button>
+          <ion-button type="submit"  style="text-transform: none;" class="w-full mt-5" shape="round">Enviar </ion-button>
         </div>
         
       </form>

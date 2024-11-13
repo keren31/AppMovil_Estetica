@@ -1,48 +1,48 @@
 
 <ion-content [fullscreen]="true">
   <div class="min-h-screen bg-gray-100 p-4">
+    <!-- Mostrar el spinner y el mensaje mientras los datos se están cargando -->
+    <div *ngIf="isLoading" class="flex flex-col items-center justify-center min-h-screen text-blue-600">
+      <ion-spinner name="crescent" class="mb-2"></ion-spinner>
+      <p class="text-lg">Cargando...</p>
+    </div>
     <!-- Encabezado de la página -->
-    <div class="flex justify-between items-center mb-4">
-      <ion-icon name="chevron-back-outline"></ion-icon>
+    <div *ngIf="!isLoading" class="flex justify-between items-center mb-4">
+      <ion-icon (click)="goToPerfil()" name="chevron-back-outline" class="h-8 w-8"></ion-icon>
       <h1 class="text-2xl font-bold text-blue-600">Mis citas</h1>
       <div></div> <!-- Espacio para mantener el diseño centrado -->
     </div>
   
     <!-- Tarjeta de cita 1 -->
-    <div class="bg-white p-4 rounded-lg shadow-lg mb-4 flex justify-between items-center">
+    <div *ngFor="let cita of citas" class="bg-white p-4 rounded-lg shadow-lg mb-4 flex justify-between items-center">
       <div>
-        <h3 class="text-lg font-bold text-gray-800">Corte de pelo</h3>
-        <p class="text-sm text-gray-600">ID Cita: 134</p>
-        <p class="text-sm text-gray-600">Fecha: 2024-07-23</p>
-        <p class="text-sm text-gray-600">Hora: 10:00:00</p>
-        <p class="text-sm text-gray-600">Teléfono: 7711853897</p>
-        <p class="mt-2 text-sm text-gray-800">Estado: <span class="font-semibold text-yellow-500">Pendiente</span></p>
+        <h3 class="text-lg font-bold text-gray-800">{{ cita.NombreServicio }}</h3>
+        <p class="text-sm text-gray-600">ID Cita: {{ cita.IdCita }}</p>
+        <p class="text-sm text-gray-600">Fecha: {{ cita.Fecha | date:'yyyy-MM-dd' }}</p>
+        <p class="text-sm text-gray-600">Hora: {{ cita.Hora }}</p>
+        <p class="text-sm text-gray-600">Teléfono: {{ cita.Telefono }}</p>
+        <p class="mt-2 text-sm text-gray-800">
+          Estado: 
+          <span [ngClass]="{
+            'text-yellow-500': cita.Estado === 'Pendiente',
+            'text-green-500': cita.Estado === 'Activo',
+            'text-red-500': cita.Estado === 'Cancelada'
+          }" class="font-semibold">{{ cita.Estado }}</span>
+        </p>
       </div>
       <div class="flex space-x-4">
         <!-- Botón de editar -->
-        <ion-icon name="create-outline" class="text-xl text-gray-600 cursor-pointer"></ion-icon>
+        <ion-icon name="create-outline" class="text-xl text-gray-600 cursor-pointer" (click)="openDetalleCitaModal(cita.IdCita)"></ion-icon>
+
         <!-- Botón de eliminar -->
-        <ion-icon name="trash-outline" class="text-xl text-red-600 cursor-pointer"></ion-icon>
+        <ion-icon (click)="cancelarCita(cita.IdCita)"  name="close-circle-outline" class="text-xl text-red-600 cursor-pointer"></ion-icon>
       </div>
     </div>
+
   
-    <!-- Tarjeta de cita 2 -->
-    <div class="bg-white p-4 rounded-lg shadow-lg mb-4 flex justify-between items-center">
-      <div>
-        <h3 class="text-lg font-bold text-gray-800">Corte de uñas</h3>
-        <p class="text-sm text-gray-600">ID Cita: 141</p>
-        <p class="text-sm text-gray-600">Fecha: 2024-08-08</p>
-        <p class="text-sm text-gray-600">Hora: 09:00:00</p>
-        <p class="text-sm text-gray-600">Teléfono: 7711853897</p>
-        <p class="mt-2 text-sm text-gray-800">Estado: <span class="font-semibold text-green-500">Activo</span></p>
-      </div>
-      <div class="flex space-x-4">
-        <!-- Botón de editar -->
-        <ion-icon name="create-outline" class="text-xl text-gray-600 cursor-pointer"></ion-icon>
-        <!-- Botón de eliminar -->
-        <ion-icon name="trash-outline" class="text-xl text-red-600 cursor-pointer"></ion-icon>
-      </div>
-    </div>
+    
+
+    
   </div>
   
 </ion-content>

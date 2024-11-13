@@ -12,12 +12,14 @@
     <!-- Barra de búsqueda con ícono dentro del input -->
     <div class="relative mb-6">
       <input type="text" placeholder="Buscar" class="w-full p-3 pl-10 border border-gray-300 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500">
-      
-      <!-- Ícono de búsqueda -->
+      <!--<ion-button expand="block" class="ion-margin-top" (click)="paymentSheet()">Pagar con tarjeta de credito</ion-button>
+      <ion-button expand="block" class="ion-margin-top" (click)="paymentFlow()">Pagar con tarjeta flow</ion-button>
+      <ion-button expand="block" class="ion-margin-top" (click)="googlePay()">Pagar con Google Play</ion-button>-->
       <div class="absolute inset-y-0 left-3 flex items-center pointer-events-none">
         <ion-icon name="search-outline" class="text-gray-500"></ion-icon>
       </div>
     </div>
+    
 
     <!-- Categorías con iconos -->
     <div class="flex items-center justify-between mb-4 space-x-2">
@@ -44,18 +46,34 @@
     <div  class="grid grid-cols-2 gap-4">
       <!-- Producto 1 -->
       <div *ngFor="let product of products" class="bg-white p-4 rounded-lg shadow-lg h-60">
-        <img [src]="product.Imagen" alt="Collar" class="w-full h-32 object-cover rounded-lg mb-4">
-        <h3 class="text-md font-semibold text-gray-700">{{product.Nombre}}</h3>
+        <img [src]="product.Imagen" (click)="openProductDetail(product)" alt="Collar" class="w-full h-32 object-cover rounded-lg mb-4">
+        <h3 class="text-md font-semibold text-gray-700 truncate">{{product.Nombre}}</h3>
         <div class="flex justify-between items-center">
-          <p class="text-lg font-bold text-gray-700">{{product.Precio}}</p>
+          <p class="text-lg font-bold text-gray-700">${{product.Precio}}</p>
         <div class="flex justify-end">
-          <button class="p-2 bg-gray-100 rounded-full">
+          <button (click)="agregarAlCarrito(product)" class="p-2 bg-gray-100 rounded-full">
             <ion-icon name="cart-outline" class="text-xl text-blue-500"></ion-icon>
           </button>
         </div>
         </div>
       </div>
+    </div>
 
+    <div *ngIf="productoDetalle" class=" fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-20">
+
+      <div class="bg-white p-6  max-w-md w-full h-full">
+        <div class="flex justify-start">
+          <ion-icon (click)="cerrarModal()" name="chevron-back-outline" class="h-8 w-8 mb-4" ></ion-icon>
+        </div>
+        <img [src]="productoDetalle.Imagen" alt="{{productoDetalle.Nombre}}" class="w-full h-1/2 object-cover rounded-lg mb-4">
+        <h2 class="text-xl font-semibold text-gray-700 ">{{productoDetalle.Nombre}}</h2>
+        <p class="text-md text-gray-600">{{productoDetalle.Descripcion}}</p>
+        <p class="text-lg font-bold text-gray-700 mt-2">${{productoDetalle.Precio}}</p>
+        <button (click)="agregarAlCarrito(productoDetalle)" class=" w-full flex items-center justify-center p-2 bg-gray-100 rounded-lg">
+          <ion-icon name="cart-outline" class="mr-4 text-xl text-blue-500"></ion-icon> Agregar al Carrito
+        </button>
+      </div>
+     
     </div>
   </div>
 </ion-content>

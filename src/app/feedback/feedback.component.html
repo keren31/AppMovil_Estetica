@@ -1,0 +1,58 @@
+<ion-content class="ion-padding flex items-center justify-center">
+  <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+    <h2 class="text-lg font-bold mb-4 text-center text-blue-600">Encuesta de Satisfacción</h2>
+    
+    <form>
+      <!-- Pregunta 1 -->
+      <div class="mb-6">
+        <label class="block text-sm font-medium text-gray-700 mb-2">
+          ¿Qué tan fácil fue navegar por la el sitio web para agendar su cita?
+        </label>
+        <ion-radio-group>
+         
+          <ion-item lines="none">
+            <ion-label>Fácil</ion-label>
+            <ion-radio slot="start" value="2"></ion-radio>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label>Neutral</ion-label>
+            <ion-radio slot="start" value="3"></ion-radio>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label>Difícil</ion-label>
+            <ion-radio slot="start" value="4"></ion-radio>
+          </ion-item>
+          
+        </ion-radio-group>
+      </div>
+
+      <!-- Pregunta 2 -->
+      <div class="mb-6">
+        <label class="block text-sm font-medium text-gray-700 mb-2">
+          ¿Qué tan satisfecho(a) está con el diseño y la rapidez de carga de la aplicación?
+        </label>
+        <ion-radio-group>
+          
+          <ion-item lines="none">
+            <ion-label>Satisfecho</ion-label>
+            <ion-radio slot="start" value="2"></ion-radio>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label>Neutral</ion-label>
+            <ion-radio slot="start" value="3"></ion-radio>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label>Insatisfecho</ion-label>
+            <ion-radio slot="start" value="4"></ion-radio>
+          </ion-item>
+          
+        </ion-radio-group>
+      </div>
+
+      <!-- Botón de Enviar -->
+      <ion-button expand="block" color="primary" (click)="closeFeedback()" class="rounded-full mt-4">
+        Enviar
+      </ion-button>
+    </form>
+  </div>
+</ion-content>
