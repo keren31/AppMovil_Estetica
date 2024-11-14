@@ -88,7 +88,7 @@ export class Tab4Page implements OnInit {
     const agregado = await this.carritoService.agregarAlCarrito(this.userData.idUsuario, producto.idProducto);
     console.log(agregado)
     if (agregado) {
-      await this.mostrarToast('Producto agregado al carrito con éxito', 'success');
+      await this.mostrarToast('Producto agregado al carrito con éxitoso', 'success');
     } else {
       await this.mostrarToast('Error al agregar el producto al carrito', 'danger');
     }
