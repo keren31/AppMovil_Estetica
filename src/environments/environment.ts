@@ -33,8 +33,8 @@ export const environment = {
     agregarPedidoCAN: 'https://lacasadelmariscoweb.azurewebsites.net/api/CasaDelMarisco/AgregarPedidoCAN',
   },
   stripe:{
-    publishableKey: 'pk_test_51QJNwTL7B8edvQLxcXAxjJTDJ5jD1BtDxSJbDam9BK8YRnnHaYkUttd3DqQyNcsNSqNRI61mHFVlyqhjb4pLxcY300c85IWxmt',
-    secretKey: 'sk_test_51QJNwTL7B8edvQLx2zjx6YPNHdlqk8MfavP3hP1j4gdkg2zYWvx5qDSs2ODcvaJf2h9HPXow56AcqiJJxjbORYuG00VyJwNd0s'
+    publishableKey: 'pk_test_51QKuzC2LCTttbCqgzwYjVTXMNj8WKMMOpYZB0Dq5bxNRYHWIYb1Gh73BPiGz8DKXF2SmHxZDpm6rCTtLwABMmnhG001lz8wn9m',
+    secretKey: 'sk_test_51QKuzC2LCTttbCqg1GAZCFC2tGVboYmFbcPYGXSeLR5wOGZy6oKk0O7Mf8DbS1UEBAA6R4RgIU78WvmCWAfDDRmC00SoHHEbtX'
   },
   api: 'https://lacasadelmariscoweb.azurewebsites.net/api/EsteticaApi/'
 };

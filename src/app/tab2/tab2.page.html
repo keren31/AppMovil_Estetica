@@ -1,62 +1,63 @@
-<ion-content [fullscreen]="true">
-  <div class="p-8">
-    <!-- Título -->
-    <div class="flex flex-col justify-center items-center">
-      <h1 class="text-xl font-bold text-blue-600 ">Agendar cita</h1>
+<ion-content [fullscreen]="true" class="bg-blue-50 flex justify-end pr-4">
+  <!-- Contenedor de la imagen -->
+  <div class="w-full max-w-sm bg-blue-100 flex justify-center items-center pt-16 pb-10 relative mx-auto">
+    <img src="../../assets/icon/perritos1.png" alt="Dog Logo" class="shadow-lg">
+  </div>
 
-      <!-- Imagen del perro -->
-      <div class="mb-6">
-        <img src="../../assets/icon/logo_perro.png" alt="Perro" class="w-25 h-24 mt-6 ml-6">
-      </div>
+  <!-- Contenedor del formulario con borde redondeado y superposición -->
+  <div class="relative bg-white rounded-t-3xl max-w-sm w-full mx-auto px-6 pt-8 pb-10 -mt-20 z-10  ml-auto">
+    <!-- Título y descripción -->
+    <div class="text-center mb-6">
+      <h2 class="text-xl font-semibold text-blue-700">Agendar cita para tu mascota</h2>
+      
     </div>
 
-    <!-- Formulario -->
-    <form (ngSubmit)="handleSubmit()" class="w-full h-full">
-      <!-- Campo de Servicio (dropdown) -->
-      <div class="relative">
-        <label class="block mb-3 mt-3 text-gray-600 mb-1 ml-4">Servicio</label>
+    <!-- Formulario de Agendar Cita -->
+    <form (ngSubmit)="handleSubmit()" >
+     <div class="space-y-4">
+       <!-- Campo de Servicio (dropdown) -->
+       <div class="relative">
         <select [(ngModel)]="servicio" name="servicio"
-          class="w-full mb-3 p-3 border border-blue-500 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none">
+          class="w-full p-3 border border-blue-500 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none">
           <option value="" disabled selected>Selecciona un servicio</option>
           <option *ngFor="let servicio of dataServicio" [value]="servicio.idServicio">
             {{ servicio.nombre }}
           </option>
         </select>
         <div class="absolute inset-y-0 right-3 flex items-center pointer-events-none">
-          <ion-icon name="chevron-down-outline" class="text-gray-500 mt-6"></ion-icon>
+          <ion-icon name="chevron-down-outline" class="text-gray-500"></ion-icon>
         </div>
       </div>
 
       <!-- Campo de Fecha -->
       <div class="relative">
-        <label class="block mb-3 mt-3 text-gray-600 mb-1 ml-4">Fecha</label>
         <input type="date" [(ngModel)]="fechaCita" name="fechaCita"
           (change)="handleFechaCitaChange(fechaCita)"
           class="w-full p-3 border border-blue-500 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none">
-          <div class="absolute inset-y-0 right-3 flex items-center pointer-events-none">
-            <ion-icon name="calendar-clear-outline" class="text-gray-500 mt-6"></ion-icon>
-          </div>
+        <div class="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+          <ion-icon name="calendar-clear-outline" class="text-gray-500"></ion-icon>
+        </div>
         <p *ngIf="fechaCitaError" class="text-red-500 text-sm mt-2 ml-4">{{ fechaCitaError }}</p>
       </div>
 
       <!-- Campo de Hora -->
       <div class="relative">
-        <label class="block mb-3 mt-3 text-gray-600 mb-1 ml-4">Hora</label>
         <select [(ngModel)]="horaCita" name="horaCita"
-          class="w-full mb-3 p-3 border border-blue-500 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none">
+          class="w-full p-3 border border-blue-500 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none">
           <option value="" disabled selected>Seleccionar horario</option>
           <option *ngFor="let horario of horariosDisponibles" [value]="horario.hora" [disabled]="horario.ocupada">
             {{ horario.hora }} {{ horario.ocupada ? "(Ocupada)" : "" }}
           </option>
         </select>
         <div class="absolute inset-y-0 right-3 flex items-center pointer-events-none">
-          <ion-icon name="chevron-down-outline" class="text-gray-500 mt-6"></ion-icon>
+          <ion-icon name="chevron-down-outline" class="text-gray-500"></ion-icon>
         </div>
         <p *ngIf="horaCitaError" class="text-red-500 text-sm mt-2 ml-4">{{ horaCitaError }}</p>
       </div>
+     </div>
 
       <!-- Botón Agendar -->
-      <button type="submit" class="mt-10 w-full bg-blue-500 text-white py-3 rounded-3xl hover:bg-blue-600 transition-colors">
+      <button type="submit" class="w-full mt-12 bg-blue-500 text-white py-3 rounded-3xl hover:bg-blue-600 transition-colors">
         Agendar
       </button>
     </form>

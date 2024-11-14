@@ -67,11 +67,30 @@
       <span>${{total}}</span>
     </div>
 
-    <!-- Botón para comprar -->
-    <ion-button expand="block" class="ion-margin-top" (click)="paymentSheet()">Pagar con tarjeta de crédito</ion-button>
-    <ion-button expand="block" class="ion-margin-top" (click)="paymentFlow()">Pagar con tarjeta Flow</ion-button>
-    <ion-button expand="block" class="ion-margin-top" (click)="googlePay()">Pagar con Google Pay</ion-button>
-
+    <div class="mt-4">
+      <label class="block mb-2 text-gray-600">Seleccione una dirección para el envío</label>
+      <ion-select [(ngModel)]="direccionSeleccionada" placeholder="Seleccione una dirección">
+        <ion-select-option *ngFor="let direccion of direcciones" [value]="direccion.DireccionID">
+          {{ direccion.Calle }}, {{ direccion.Colonia }}, {{ direccion.Ciudad }} - {{ direccion.NumeroExterior }}
+        </ion-select-option>
+      </ion-select>
+      <div *ngIf="direccionError" class="text-red-500 text-sm mt-2">
+        Debe seleccionar una dirección.
+      </div>
+    </div>
+    <div class="space-y-4 mt-12">
+      <!-- Botón para pagar con tarjeta de crédito -->
+      <button (click)="paymentSheet()" class="w-full flex items-center justify-center bg-blue-600 text-white py-3 rounded-full font-semibold transition duration-300 ease-in-out hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <ion-icon name="card-outline" class="text-xl mr-2"></ion-icon>
+        Pagar con tarjeta de crédito
+      </button>
+    
+      <!-- Botón para pagar con Google Pay -->
+      <button (click)="googlePay()" class="w-full flex items-center justify-center bg-green-600 text-white py-3 rounded-full font-semibold transition duration-300 ease-in-out hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500">
+        <ion-icon name="logo-google" class="text-xl mr-2"></ion-icon>
+        Pagar con Google Pay
+      </button>
+    </div>
   
   </div>
 </ion-content>

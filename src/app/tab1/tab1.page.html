@@ -3,59 +3,72 @@
     <!-- Mensaje de bienvenida -->
     <div class="flex justify-between items-center p-4">
       <!-- Título "Bienvenido" -->
-      <h1 class="text-2xl font-bold text-blue-600">Bienvenido</h1>
+      <h1 class="text-3xl font-bold text-blue-600">Bienvenido</h1>
       
       <!-- Ícono de perfil con enlace a la página de perfil -->
       <ion-icon name="person-circle-outline" class="text-4xl text-blue-600 cursor-pointer" (click)="goToProfile()"></ion-icon>
     </div>
   
-    <!-- Barra de búsqueda con ícono dentro del input -->
-    <div class="relative mb-6">
-      <input type="text" placeholder="Buscar" class="w-full p-3 pl-10 border border-gray-300 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500">
-      
-      <!-- Ícono de búsqueda -->
-      <div class="absolute inset-y-0 left-3 flex items-center pointer-events-none">
-        <ion-icon name="search-outline" class="text-gray-500"></ion-icon>
-      </div>
-    </div>
-
   
-    <!-- Banner de servicios -->
-    <div (click)="goToTab2()"  class="bg-blue-100 p-4 rounded-lg flex flex-col justify-between mb-4" >
-      <div>
-        <h2  class="text-lg font-semibold text-gray-700">Conoce nuestros servicios y agenda tu cita!</h2>
+     <!-- Banner de servicios -->
+     <div (click)="goToTab2()" class="relative bg-blue-400 p-4 rounded-lg flex flex-col justify-between mb-4 text-white shadow-lg">
+      <div class="z-10 relative">
+        <h2 class="text-lg font-semibold">Conoce nuestros servicios y agenda tu cita!</h2>
       </div>
-      <div class="flex justify-end">
+      <div class="flex justify-end z-10 relative">
         <img src="../../assets/icon/perritos-home.png" alt="Perros" class="w-21 h-20">
       </div>
     </div>
     
   
     <!-- Banner de productos -->
-    <div (click)="goToTab4()" class="bg-blue-200 p-4 rounded-lg flex items-center justify-between mb-6">
-      <img src="../../assets/icon/productos-home.png" alt="Productos" class="w-20 h-20">
-      <div>
-        <h2  class="text-lg font-semibold text-gray-700">Los mejores productos</h2>
+    <div (click)="goToTab4()" class="relative bg-blue-300 p-4 rounded-lg flex items-center justify-between mb-6 text-white shadow-lg">
+      <div class="absolute opacity-20 top-0 left-0 right-0 bottom-0 flex justify-center items-center">
+        <ion-icon name="pricetag-outline" class="text-[150px]"></ion-icon>
       </div>
-      
+      <div class="z-10 relative">
+        <h2 class="text-lg font-semibold">Los mejores productos</h2>
+      </div>
+      <img src="../../assets/icon/productos-home.png" alt="Productos" class="w-20 h-20 z-10 relative">
     </div>
   
     <!-- Sección de servicios -->
-    <h2  class="text-xl font-semibold text-gray-700 mb-4">Servicios</h2>
-    <div (click)="goToTab3()"  class="grid grid-cols-2 gap-4">
-      <!-- Tarjeta de servicio -->
-      <div class="bg-white p-4 rounded-lg shadow-lg">
-        <img src="../../assets/icon/servicio corte de pelo.png" alt="Corte de pelo" class="w-full h-32 object-cover rounded-lg mb-4">
-        <h3 class="text-md font-semibold text-gray-700">Corte de pelo</h3>
-        <a href="/tabs/tab3" class="text-blue-500 text-sm">Ver más</a>
+    <h2 class="text-xl font-semibold text-gray-700 mb-4">Servicios</h2>
+    <div (click)="goToTab3()" class="grid grid-cols-2 gap-4">
+      <!-- Tarjeta de servicio estilo actualizado con imagen -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="relative h-32">
+          <img src="../../assets/icon/servicio corte de pelo.png" alt="Corte de pelo" class="object-cover w-full h-full">
+          <span class="absolute top-2 left-2 bg-blue-200 text-xs text-blue-600 px-2 py-1 rounded-full">4.8 ★</span>
+        </div>
+        <div class="p-4 text-center">
+          <h3 class="text-md font-semibold text-gray-800">Corte de pelo</h3>
+          <p class="text-xs text-gray-500">Más de 1,000 servicios</p>
+        </div>
       </div>
-  
-      <!-- Tarjeta de servicio duplicada -->
-      <div class="bg-white p-4 rounded-lg shadow-lg">
-        <img src="../../assets/icon/servicio de baño.jpg" alt="Corte de pelo" class="w-full h-32 object-cover rounded-lg mb-4">
-        <h3 class="text-md font-semibold text-gray-700">Baño</h3>
-        <a href="servicios" class="text-blue-500 text-sm">Ver más</a>
+
+      <!-- Tarjeta de servicio duplicada estilo actualizado con imagen -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="relative h-32">
+          <img src="../../assets/icon/servicio de baño.jpg" alt="Baño" class="object-cover w-full h-full">
+          <span class="absolute top-2 left-2 bg-blue-200 text-xs text-blue-600 px-2 py-1 rounded-full">4.9 ★</span>
+        </div>
+        <div class="p-4 text-center">
+          <h3 class="text-md font-semibold text-gray-800">Baño</h3>
+          <p class="text-xs text-gray-500">Más de 1,000 servicios</p>
+        </div>
       </div>
+    </div>
+
+     <!-- Tarjeta de presentación de la empresa -->
+     <div class="bg-blue-400 rounded-lg p-4 text-white mb-6 relative shadow-lg mt-6">
+      <div class="absolute opacity-10 top-0 left-0 right-0 bottom-0 flex justify-center items-center">
+        <ion-icon name="paw-outline" class="text-[200px]"></ion-icon>
+      </div>
+      <h2 class="text-xl font-bold z-10 relative">Estética Canina Platón</h2>
+      <p class="text-md z-10 relative">Tu lugar de confianza para el cuidado de tu mascota</p>
+      <p class="text-sm mt-2 z-10 relative">Ubicación: PLatón Sanchez</p>
+      
     </div>
   </div>
   

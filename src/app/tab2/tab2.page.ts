@@ -58,6 +58,7 @@ export class Tab2Page implements OnInit {
     const selectedDate = new Date(fecha);
     const dayOfWeek = selectedDate.getDay();
     
+    
     if (dayOfWeek === 5 || dayOfWeek === 6) {
       //this.fechaCitaError = 'No abre los fines de semana';
       this.mostrarToast('No abre los fines de semana', 'warning', 'warning-outline');
@@ -93,6 +94,16 @@ export class Tab2Page implements OnInit {
       return;
     }
 
+     // Obtener la fecha y hora actuales
+    const ahora = new Date();
+    const fechaYHoraSeleccionada = new Date(this.fechaCita + ' ' + this.horaCita);
+
+    // Verificar si la fecha y hora seleccionadas ya han pasado
+    if (fechaYHoraSeleccionada <= ahora) {
+      this.mostrarToast('La fecha o la hora seleccionadas ya han pasado. Selecciona otra fecha u hora.', 'danger', 'close-circle-outline');
+      return;
+    }
+
     const exito=await this.citaService.agregarCita(this.userData.idUsuario, parseInt(this.servicio), this.fechaCita, this.horaCita, this.userData.Telefono, this.userData.Correo);
     if (exito) {
       // Mostrar toast de éxito
@@ -101,10 +112,10 @@ export class Tab2Page implements OnInit {
       this.horaCita = '';
       this.servicio = '';
 
-      this.abrirFeedbackModal();
+      //this.abrirFeedbackModal();
     } else {
       // Mostrar toast de error
-      this.mostrarToast('No se pudo agregar la cita. Inténtalo de nuevo más tarde', 'danger', 'close-circle-outline');
+      this.mostrarToast('No se pudo agregar la cita. Inténtalo de nuevo, captura todos los datos', 'danger', 'close-circle-outline');
     }
     
   }
@@ -120,10 +131,10 @@ export class Tab2Page implements OnInit {
     });
     toast.present();
   }
-  async abrirFeedbackModal() {
+  /*async abrirFeedbackModal() {
     const modal = await this.modalController.create({
       component: FeedbackComponent // Asegúrate de usar el nombre correcto de tu componente de feedback
     });
     return await modal.present();
-  }
+  }*/
 }

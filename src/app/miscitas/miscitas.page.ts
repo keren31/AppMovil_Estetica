@@ -45,14 +45,31 @@ export class MiscitasPage implements OnInit {
   }
 
  // Función para cargar las citas del usuario específico, filtrar por estado "Activo" y ordenar por fecha desde la fecha actual en adelante
+// Función para cargar las citas del usuario específico, filtrar por estado "Activo" y ordenar por fecha desde la fecha actual en adelante
+// Función para cargar las citas del usuario específico, filtrar por estado "Activo" y ordenar por fecha desde la fecha actual en adelante
 cargarCitas() {
   this.miscitasService.obtenerCitas(this.userData.idUsuario).subscribe(
     citas => {
-      const today = new Date().setHours(0, 0, 0, 0); // Fecha actual a medianoche
+      const now = new Date(); // Fecha y hora actual
 
-      // Filtrar las citas por estado "Activo" y fecha actual o futura, y luego ordenar por fecha ascendente
+      // Filtrar las citas por estado "Activo", fecha y hora en el futuro
       this.citas = citas
-        .filter(cita => cita.Estado === 'Activo' && new Date(cita.Fecha).getTime() >= today)
+        .filter(cita => {
+          const citaFecha = new Date(cita.Fecha);
+          const citaHora = cita.Hora; // `cita.Hora` está en formato "HH:mm:ss"
+          
+          // Dividir la hora en horas, minutos y segundos
+          const [hours, minutes, seconds] = citaHora.split(':').map(Number);
+          
+          // Establecer la hora de la cita en la fecha específica
+          citaFecha.setHours(hours, minutes, seconds, 0);
+
+          // Verificar que la cita esté en el futuro y no haya pasado la hora
+          return (
+            cita.Estado === 'Activo' &&
+            (citaFecha > now || (citaFecha.getDate() === now.getDate() && citaFecha.getTime() > now.getTime()))
+          );
+        })
         .sort((a, b) => new Date(a.Fecha).getTime() - new Date(b.Fecha).getTime());
 
       console.log(this.citas);
@@ -64,6 +81,8 @@ cargarCitas() {
     }
   );
 }
+
+
 
   async cancelarCita(idCita: number) {
     const exito = await this.miscitasService.CancelarReservacion(idCita);

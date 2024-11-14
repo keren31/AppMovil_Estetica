@@ -6,7 +6,7 @@
         Precio: number;
         Disponibilidad: number;
         FechaIntroduccion: string; 
-        Categoria: number;
+        idCategoria: number;
         Estado: string;
         Imagen: string;  
     }

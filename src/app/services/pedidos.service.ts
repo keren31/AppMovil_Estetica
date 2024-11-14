@@ -4,7 +4,7 @@ import { Pedidos } from '../interface/pedidos';
 import { environment } from 'src/environments/environment';
 import { UserData } from '../interface/userData';
 import { UserDataStorageService } from './user-data-storage.service';
-import { NavController } from '@ionic/angular';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,7 +12,7 @@ export class PedidosService {
   private apiUrl = environment.apiEndpoints.obtenerPedidos;
   private agregarPedido = environment.apiEndpoints.agregarPedidoCAN
   userData!: UserData;
-  constructor(private http: HttpClient, private userStprage: UserDataStorageService, private nav:NavController) { }
+  constructor(private http: HttpClient, private userStprage: UserDataStorageService, private router:Router) { }
 
   getPedidos(idUsuario: number) {
     const url = `${this.apiUrl}${idUsuario}`; // Agrega el idUsuario al final de la URL
@@ -33,8 +33,8 @@ export class PedidosService {
           console.log('Error interno del servidor')
         }
         if (result === "Exito") {
+          this.router.navigate(['/mispedidos']);
          
-         this.nav.navigateForward('mispedidos')
         }
         return false;
       })

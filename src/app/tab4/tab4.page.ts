@@ -21,6 +21,16 @@ import { HttpClient } from '@angular/common/http';
 export class Tab4Page implements OnInit {
   userData!: UserData;
   products:Products[]=[];
+  filteredProducts: Products[] = []; // Productos después de aplicar el filtro
+  searchQuery: string = ''; // Para el texto de búsqueda
+  selectedCategory: number | null = null;
+  categories = [
+    { id: 1, name: 'Jugetes', icon: 'tennisball-outline' },
+    { id: 2, name: 'Collares', icon: 'medal-outline' },
+    { id: 3, name: 'Accesorios', icon: 'heart-circle-outline' },
+    { id: 4, name: 'correas', icon: 'paw-outline' }
+    
+  ];
   productoDetalle: Products | undefined;
   data: any= {}
   constructor(    private http : HttpClient, private modalController: ModalController, private productosservice: ProductosService, private carritoService: CarritoService, private toastController: ToastController, private perfilService: PerfilService,) {
@@ -57,10 +67,29 @@ export class Tab4Page implements OnInit {
     this.productosservice.getALLProducts()
     .subscribe(products=>{
       this.products=products;
+      this.filteredProducts = products; // Inicialmente, muestra todos los productos
       console.log(products)
     }
     )
   }
+
+  filterByCategory(categoryId: number | null) {
+    this.selectedCategory = categoryId;
+    if (categoryId === null) {
+      this.filteredProducts = this.products; // Muestra todos los productos si no hay categoría seleccionada
+    } else {
+      this.filteredProducts = this.products.filter(product => product.idCategoria === categoryId);
+    }
+  }
+
+  // Función para filtrar productos por nombre según el texto ingresado
+  filterProducts() {
+    const query = this.searchQuery.toLowerCase();
+    this.filteredProducts = this.products.filter((product) =>
+      product.Nombre.toLowerCase().includes(query)
+    );
+  }
+
   //aqui empiza modificaciones
   async traerDatosUsuario() {
     try {
@@ -70,7 +99,6 @@ export class Tab4Page implements OnInit {
       console.error('Error al obtener datos de usuario', error);
     }
   }
-
 
   openProductDetail(product: any): void {
     this.productoDetalle = product;
@@ -88,18 +116,19 @@ export class Tab4Page implements OnInit {
     const agregado = await this.carritoService.agregarAlCarrito(this.userData.idUsuario, producto.idProducto);
     console.log(agregado)
     if (agregado) {
-      await this.mostrarToast('Producto agregado al carrito con éxitoso', 'success');
+      await this.mostrarToast('Producto agregado al carrito con éxitoso', 'success', 'checkmark-circle-outline');
     } else {
-      await this.mostrarToast('Error al agregar el producto al carrito', 'danger');
+      await this.mostrarToast('Error al agregar el producto al carrito', 'danger', 'close-circle-outline');
     }
   }
 
-  async mostrarToast(message: string, color: string) {
+  async mostrarToast(message: string, color: string, icono: string = '') {
     const toast = await this.toastController.create({
       message: message,
       duration: 2000,
       color: color,
-      position: 'bottom'
+      position: 'top',
+      icon: icono
     });
     toast.present();
   }
@@ -143,6 +172,7 @@ export class Tab4Page implements OnInit {
       console.log(e);
     }
   }
+  
   async googlePay() {
     const isAvailable = Stripe.isGooglePayAvailable().catch(() => undefined);
     if (isAvailable === undefined) {

@@ -28,6 +28,8 @@ export class CarritoPage implements OnInit {
   data: any= {}
 
   direcciones: Direccion[] = [];
+  direccionSeleccionada!: number; // Dirección seleccionada por el usuario
+  direccionError = false; 
 
   constructor(private modalController: ModalController, 
     private perfilService: PerfilService, 
@@ -75,7 +77,7 @@ export class CarritoPage implements OnInit {
       this.perfilService.traerDirecciones(this.userData.idUsuario).subscribe({
         next: (direcciones) => {
           if (direcciones && direcciones.length > 0) {
-            this.direcciones = direcciones.slice(-1); 
+            this.direcciones = direcciones.slice(-direcciones.length); 
             console.log('Direcciones obtenidas:', this.direcciones);
           } else {
             console.warn('No hay direcciones disponibles para mostrar.');
@@ -176,8 +178,17 @@ export class CarritoPage implements OnInit {
       console.error('Error: datos de pago incompletos');
       return;
     }
+
+    if (!this.direccionSeleccionada) {
+      this.direccionError = true;
+      return;
+    }
+
+    this.direccionError = false;
+
+    console.log('Comprar con la dirección ID:', this.direccionSeleccionada);
     
-    console.log(this.userData.idUsuario, this.productosCarrito[0].idCarrito,this.total ,this.direcciones[0].DireccionID)
+    console.log(this.userData.idUsuario, this.productosCarrito[0].idCarrito,this.total ,this.direccionSeleccionada)
     try {
       Stripe.addListener(PaymentSheetEventsEnum.Completed, () => {
         console.log('PaymentSheetEventsEnum.Completed');
@@ -186,6 +197,7 @@ export class CarritoPage implements OnInit {
       const data$ = this.httpPost(this.data);
       const { paymentIntent, ephemeralKey, customer } = await lastValueFrom(data$);
 
+      
       await Stripe.createPaymentSheet({
         paymentIntentClientSecret: paymentIntent,
         customerId: customer,
@@ -196,9 +208,9 @@ export class CarritoPage implements OnInit {
       const result = await Stripe.presentPaymentSheet();
       if (result && result.paymentResult === PaymentSheetEventsEnum.Completed) {
         this.splitAndJoin(paymentIntent);
-        console.log(this.userData.idUsuario, this.productosCarrito[0].idCarrito,this.total ,this.direcciones[0].DireccionID)
-        this.pedidos.crearPedidos(this.userData.idUsuario, this.productosCarrito[0].idCarrito,this.total ,this.direcciones[0].DireccionID);
-
+        console.log(this.userData.idUsuario, this.productosCarrito[0].idCarrito,this.total ,this.direccionSeleccionada)
+        this.pedidos.crearPedidos(this.userData.idUsuario, this.productosCarrito[0].idCarrito,this.total ,this.direccionSeleccionada);
+        this.closeModal();
       }
     } catch (e) {
       console.log(e);
