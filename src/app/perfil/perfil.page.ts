@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'; 
 import { UserData } from '../interface/userData';
 import { PerfilService } from '../services/perfil.service';
+
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.page.html',

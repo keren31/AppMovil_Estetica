@@ -4,9 +4,9 @@
     <string name="title_activity_main">Éstetica Canina Platón</string>
     <string name="package_name">com.esteticaplaton.appmovilesteticaplaton</string>
     <string name="custom_url_scheme">com.esteticaplaton.appmovilesteticaplaton</string>
-    <string name="publishable_key">pk_test_51QJNwTL7B8edvQLxcXAxjJTDJ5jD1BtDxSJbDam9BK8YRnnHaYkUttd3DqQyNcsNSqNRI61mHFVlyqhjb4pLxcY300c85IWxmt</string>
+    <string name="publishable_key">pk_test_51QKuzC2LCTttbCqgzwYjVTXMNj8WKMMOpYZB0Dq5bxNRYHWIYb1Gh73BPiGz8DKXF2SmHxZDpm6rCTtLwABMmnhG001lz8wn9m</string>
   <bool name="enable_google_pay">true</bool>
-  <string name="country_code">US</string>
+  <string name="country_code">MX</string>
   <string name="merchant_display_name">Estetica canina</string>
   <bool name="google_pay_is_testing">true</bool>
 </resources>
