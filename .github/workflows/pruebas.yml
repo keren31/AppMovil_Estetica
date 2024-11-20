@@ -116,8 +116,10 @@ jobs:
           build-tools: 33.0.2
 
       # 10. Otorgar permisos de ejecución a gradlew
-      - name: Grant execute permission to Gradlew
-        run: chmod +x ./gradlew
+      - name: Give gradlew execute permissions
+        run: |
+          cd android
+          chmod +x gradlew
 
       # 11. Construir el .aab
       - name: Build Android App Bundle (.aab)
