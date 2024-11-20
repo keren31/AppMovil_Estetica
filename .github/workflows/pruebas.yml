@@ -107,19 +107,17 @@ jobs:
       - name: Sync with Capacitor
         run: ionic cap sync android
 
-      # 9. Configurar JDK y Android SDK
-      - name: Set up Java
-        uses: actions/setup-java@v3
+      # 9. Configurar el entorno para Android SDK
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v2
         with:
-          java-version: '11'
-          distribution: 'temurin'
+          api-level: 33
+          target: android-33
+          build-tools: 33.0.2
 
-      - name: Install Android SDK
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: 31
-          target: default
-          channel: stable
+      # 10. Aceptar las licencias de Android SDK
+      - name: Accept Android Licenses
+        run: yes | sdkmanager --licenses
 
       # 10. Construir el .aab
       - name: Build Android App Bundle (.aab)
