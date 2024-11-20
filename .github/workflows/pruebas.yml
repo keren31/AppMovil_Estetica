@@ -107,6 +107,13 @@ jobs:
       - name: Sync with Capacitor
         run: ionic cap sync android
 
+      # . Configurar Java y Android SDK
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'zulu'
+
       # 9. Configurar el entorno para Android SDK
       - name: Set up Android SDK
         uses: android-actions/setup-android@v2
