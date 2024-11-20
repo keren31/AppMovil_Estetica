@@ -6,7 +6,7 @@ import { PerfilService } from '../services/perfil.service';
 import { Servicios } from '../interface/servicios';
 import { ToastController, ModalController } from '@ionic/angular';
 import { FeedbackComponent } from '../feedback/feedback.component';
-
+import { NavController } from '@ionic/angular';
 @Component({
   selector: 'app-tab2',
   templateUrl: './tab2.page.html',
@@ -24,7 +24,9 @@ export class Tab2Page implements OnInit {
   dataServicio: Servicios[] = [];
   horariosDisponibles: { hora: string, ocupada: boolean }[] = [];
 
-  constructor(private citaService: CitaService, private perfilService: PerfilService,  private toastController: ToastController, private modalController: ModalController ) {}
+  constructor(private citaService: CitaService, private perfilService: PerfilService,  private toastController: ToastController, private modalController: ModalController,
+    private nav: NavController
+   ) {}
 
   ngOnInit() {
     this.obtenerDatosServicios();
@@ -112,7 +114,7 @@ export class Tab2Page implements OnInit {
       this.horaCita = '';
       this.servicio = '';
 
-      //this.abrirFeedbackModal();
+      this.verSiContestar();
     } else {
       // Mostrar toast de error
       this.mostrarToast('No se pudo agregar la cita. Inténtalo de nuevo, captura todos los datos', 'danger', 'close-circle-outline');
@@ -131,10 +133,21 @@ export class Tab2Page implements OnInit {
     });
     toast.present();
   }
-  /*async abrirFeedbackModal() {
+
+  async verSiContestar(){
+    const exito= await this.perfilService.verificarEncuesta(this.userData.idUsuario);
+    console.log("valor si ya contesto encuesta: ", exito);
+    if (!exito) {
+      this.abrirFeedbackModal();
+    }else{
+      this.nav.navigateForward('/tabs/tab1')
+    }
+
+  }
+  async abrirFeedbackModal() {
     const modal = await this.modalController.create({
       component: FeedbackComponent // Asegúrate de usar el nombre correcto de tu componente de feedback
     });
     return await modal.present();
-  }*/
+  }
 }

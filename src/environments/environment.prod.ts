@@ -26,6 +26,8 @@ export const environment = {
     agregarUsuarios: 'https://lacasadelmariscoweb.azurewebsites.net/api/CasaDelMarisco/AgregarUsuarios?Nombre=',
     direccionesCan: 'https://lacasadelmariscoweb.azurewebsites.net/api/CasaDelMarisco/TraerDirecciones?UsuarioID=',
     agregarPedidoCAN: 'https://lacasadelmariscoweb.azurewebsites.net/api/CasaDelMarisco/AgregarPedidoCAN',
+    versiContestoFeed:'https://lacasadelmariscoweb.azurewebsites.net/api/EsteticaApi/VerificarUsuarioFeedBackMovil?IdUsuario=',
+    registrarFeedback:'https://lacasadelmariscoweb.azurewebsites.net/api/EsteticaApi/InsertarRespuesta'
   },
   stripe:{
     publishableKey: 'pk_test_51QKuzC2LCTttbCqgzwYjVTXMNj8WKMMOpYZB0Dq5bxNRYHWIYb1Gh73BPiGz8DKXF2SmHxZDpm6rCTtLwABMmnhG001lz8wn9m',
