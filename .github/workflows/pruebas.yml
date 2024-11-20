@@ -117,7 +117,7 @@ jobs:
 
       # 10. Otorgar permisos de ejecución a gradlew
       - name: Grant execute permission to Gradlew
-        run: chmod +x ./gradlew
+        run: chmod +x android/gradlew
 
       # 11. Construir el .aab
       - name: Build Android App Bundle (.aab)
