@@ -8,6 +8,7 @@ on:
   pull_request:
     branches:
       - main   # Ejecutar las pruebas antes de fusionar a master
+
   workflow_dispatch:
 
 # Permisos para GitHub Actions
@@ -16,6 +17,7 @@ permissions:
 
 jobs:
   Pruebas:
+    #name: Run Unit Tests
     runs-on: ubuntu-latest
 
     steps:
@@ -28,25 +30,42 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20' # Versión de Node.js recomendada
-          cache: 'npm'       # Configura el caché para npm automáticamente
+          cache: 'npm'  # Configura el caché para npm automáticamente
 
       # 3. Instalar dependencias del proyecto
       - name: Install dependencies
         run: npm ci
 
-      # 4. Instalar Ionic CLI globalmente
+      # Instalar Ionic CLI globalmente
       - name: Install Ionic CLI
         run: npm install -g @ionic/cli
 
-      # 5. Ejecutar pruebas unitarias con Karma
-      - name: Run Karma tests
-        run: npm test || true
+       # 4. Levantar la aplicación de Angular
+      - name: Start Angular App
+        run: npx ionic serve --port 8100 &
+        env:
+          CI: true
 
-      # 6. Ejecutar pruebas E2E con Cypress
+      # # 5. Esperar a que el servidor esté arriba
+      #- name: Wait for Angular App to be available
+        #run: npx wait-on http://localhost:8100
+
+      # # 6. Ejecutar pruebas unitarias con Jest
+      # - name: Run Jest tests
+      #   run: npm run test --no-watch --no-progress --browsers=ChromeHeadless
+
+      # # 7. Ejecutar pruebas lint
+      # - name: Run lint
+      #   run: npm run lint
+      
+      # 8. Ejecutar pruebas e2e con cypress
       - name: e2e cypress
         run: npx cypress run
 
-  build:
+      - name: Run Karma tests
+        run: npm test
+
+   build:
     runs-on: ubuntu-latest
     needs: Pruebas # Este job se ejecutará solo si 'Pruebas' pasa exitosamente
 
@@ -85,4 +104,4 @@ jobs:
 
       # 8. Sincronizar archivos con Capacitor
       - name: Sync with Capacitor
-        run: ionic cap sync
+        run: ionic cap sync     
