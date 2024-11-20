@@ -115,17 +115,17 @@ jobs:
           target: android-33
           build-tools: 33.0.2
 
-      # 10. Aceptar las licencias de Android SDK
-      - name: Accept Android Licenses
-        run: yes | sdkmanager --licenses
+      # 10. Otorgar permisos de ejecución a gradlew
+      - name: Grant execute permission to Gradlew
+        run: chmod +x ./gradlew
 
-      # 10. Construir el .aab
+      # 11. Construir el .aab
       - name: Build Android App Bundle (.aab)
         run: |
           cd android
           ./gradlew bundleRelease
 
-      # 11. Cargar artefactos (opcional)
+      # 12. Cargar artefactos (opcional)
       - name: Upload .aab artifact
         uses: actions/upload-artifact@v3
         with:
